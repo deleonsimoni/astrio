@@ -1,5 +1,6 @@
 header {
   width: 100%;
+
   .logo {
     background-image: url('../../assets/logo.png');
     width: 50px;
@@ -7,9 +8,11 @@ header {
     background-size: contain;
     background-repeat: no-repeat;
   }
+
   .example-spacer {
     flex: 1 1 auto;
   }
+
   .links {
     color: white;
     font-family: 'Helvetica Neue', sans-serif;
@@ -19,17 +22,21 @@ header {
     line-height: 1;
     text-align: center;
     padding: 15px;
+
     &.side {
       padding: 0 14px;
     }
   }
+
   .mat-toolbar {
     background: black;
   }
+
   .mat-icon {
     vertical-align: middle;
     margin: 0 5px;
   }
+
   a {
     cursor: pointer;
   }

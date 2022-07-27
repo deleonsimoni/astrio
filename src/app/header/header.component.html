@@ -1,18 +1,48 @@
-<header>
-  <mat-toolbar color="primary">
-    <a routerLink="/" class="logo"></a>
-    <span class="example-spacer"></span>
-    <a class="links side" routerLink="/auth/login" *ngIf="!user">Login</a>
-    <div>
-      <a class="links side" *ngIf="user" [matMenuTriggerFor]="menu">
-        <mat-icon>account_circle</mat-icon>{{ user.fullname }}
-      </a>
-      <mat-menu #menu="matMenu">
-        <button mat-menu-item *ngIf="user?.isAdmin" routerLink="/admin">
-          admin
-        </button>
-        <button mat-menu-item (click)="logout()">logout</button>
-      </mat-menu>
+<!-- ======= Top Bar ======= -->
+<section id="topbar" class="d-flex align-items-center">
+  <div class="container d-flex justify-content-center justify-content-md-between">
+    <div class="contact-info d-flex align-items-center">
+      <i class="bi bi-envelope-fill"></i><a href="mailto:contact@example.com">astrio@astrio.com.br</a>
+      <i class="bi bi-phone-fill phone-icon"></i> (21) 2215-0024
     </div>
-  </mat-toolbar>
-</header>
+    <div class="social-links d-none d-md-block">
+      <a href="#" class="twitter"><i class="bi bi-twitter"></i></a>
+      <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
+      <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
+    </div>
+  </div>
+</section>
+
+<!-- ======= Header ======= -->
+<header id="header" class="d-flex align-items-center">
+  <div class="container d-flex align-items-center">
+
+    <h1 class="logo me-auto"><a href="index.html"></a></h1>
+    <!-- Uncomment below if you prefer to use an image logo -->
+    <!-- <a href="index.html" class="logo me-auto"><img src="assets/img/astrio.png" alt="" class="img-fluid"></a>-->
+
+    <nav id="navbar" class="navbar">
+      <ul>
+        <li><a class="nav-link scrollto active" href="#hero">Home</a></li>
+        <li><a class="nav-link scrollto" href="#about">Quem Somos</a></li>
+        <li><a class="nav-link scrollto" href="#noticias">Notícias</a></li>
+        <li><a class="nav-link scrollto" href="#clients">Estatuto</a></li>
+        <li><a class="nav-link scrollto" href="#team">Presidentes</a></li>
+        <li><a class="nav-link scrollto" href="#cta">Aniversariantes</a></li>
+        <li><a class="nav-link scrollto" href="#services">Convênios</a></li>
+
+
+        <li class="dropdown"><a href="#"><span>AST-Rio</span> <i class="bi bi-chevron-down"></i></a>
+          <ul>
+            <li><a href="#diretoria">Diretoria / Conselho</a></li>
+            <li><a href="#">Área Administrativa</a></li>
+
+          </ul>
+        </li>
+        <li><a class="nav-link scrollto" href="#contact">Contato</a></li>
+      </ul>
+      <i class="bi bi-list mobile-nav-toggle"></i>
+    </nav><!-- .navbar -->
+
+  </div>
+</header><!-- End Header -->

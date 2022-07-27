@@ -20,6 +20,7 @@
     "sourceMap": true,
     "declaration": false,
     "importHelpers": true,
+    "strictPropertyInitialization": false,
     "experimentalDecorators": true,
     "suppressImplicitAnyIndexErrors": true
   }
