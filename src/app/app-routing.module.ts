@@ -3,11 +3,29 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { AuthGuard } from './shared/guards';
 import { HomeComponent } from './home/home.component';
+import { PresidentesComponent } from './presidentes/presidentes.component';
+import { DiretoriaComponent } from './diretoria/diretoria.component';
+import { QuemSomosComponent } from './quem-somos/quem-somos.component';
 
 const routes: Routes = [
   {
     path: '',
     component: HomeComponent,
+    /* canActivate: [AuthGuard],*/
+  },
+  {
+    path: 'presidentes',
+    component: PresidentesComponent,
+    /* canActivate: [AuthGuard],*/
+  },
+  {
+    path: 'diretoria',
+    component: DiretoriaComponent,
+    /* canActivate: [AuthGuard],*/
+  },
+  {
+    path: 'quem-somos',
+    component: QuemSomosComponent,
     /* canActivate: [AuthGuard],*/
   },
   {
