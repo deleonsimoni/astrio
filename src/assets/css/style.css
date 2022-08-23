@@ -10,12 +10,12 @@
 --------------------------------------------------------------*/
 body {
   font-family: "Open Sans", sans-serif;
-  color: #444444;
+  color: #043d6c;
 }
 
 a {
   text-decoration: none;
-  color: #349bf0;
+  color: #033a67;
 }
 
 a:hover {
@@ -42,7 +42,7 @@ h6 {
   right: 15px;
   bottom: 15px;
   z-index: 996;
-  background: #349bf0;
+  background: #033a67;
   width: 40px;
   height: 40px;
   border-radius: 4px;
@@ -82,11 +82,11 @@ h6 {
 }
 
 #topbar .contact-info a:hover {
-  color: #349bf0;
+  color: #033a67;
 }
 
 #topbar .contact-info i {
-  color: #349bf0;
+  color: #033a67;
   line-height: 0;
   margin-right: 5px;
 }
@@ -132,7 +132,7 @@ h6 {
 }
 
 #header .logo a {
-  color: #349bf0;
+  color: #033a67
 }
 
 #header .logo img {
@@ -188,7 +188,7 @@ h6 {
 .navbar .active,
 .navbar .active:focus,
 .navbar li:hover>a {
-  color: #349bf0;
+  color: #033a67;
 }
 
 .navbar .getstarted,
@@ -197,14 +197,14 @@ h6 {
   padding: 8px 25px;
   margin-left: 30px;
   border-radius: 4px;
-  border: 2px solid #349bf0;
+  border: 2px solid #033a67;
   transition: 0.3s;
   font-size: 14px;
 }
 
 .navbar .getstarted:hover,
 .navbar .getstarted:focus:hover {
-  background: #349bf0;
+  background: #033a67;
   color: #fff;
 }
 
@@ -239,7 +239,7 @@ h6 {
 .navbar .dropdown ul a:hover,
 .navbar .dropdown ul .active:hover,
 .navbar .dropdown ul li:hover>a {
-  color: #349bf0;
+  color: #033a67;
 }
 
 .navbar .dropdown:hover>ul {
@@ -338,7 +338,7 @@ h6 {
 .navbar-mobile a:hover,
 .navbar-mobile .active,
 .navbar-mobile li:hover>a {
-  color: #349bf0;
+  color: #033a67;
 }
 
 .navbar-mobile .getstarted,
@@ -373,7 +373,7 @@ h6 {
 .navbar-mobile .dropdown ul a:hover,
 .navbar-mobile .dropdown ul .active:hover,
 .navbar-mobile .dropdown ul li:hover>a {
-  color: #349bf0;
+  color: #033a67;
 }
 
 .navbar-mobile .dropdown>.dropdown-active {
@@ -386,7 +386,7 @@ h6 {
 #hero {
   width: 100%;
   height: 40vh;
-  background-color: #349bf0;
+  background-color: #f0f3f6;
   overflow: hidden;
   position: relative;
 }
@@ -407,7 +407,7 @@ h6 {
 
 #hero .carousel-item::before {
   content: "";
-  background-color: #349bf0;
+  background-color: #043d6c;
 }
 
 #hero .carousel-container {
@@ -495,7 +495,7 @@ h6 {
 
 #hero .carousel-indicators li.active {
   opacity: 1;
-  background: #349bf0;
+  background: #033a67;
 }
 
 #hero .btn-get-started {
@@ -511,7 +511,7 @@ h6 {
   color: #fff;
   -webkit-animation-delay: 0.8s;
   animation-delay: 0.8s;
-  background: #349bf0;
+  background: #033a67;
 }
 
 #hero .btn-get-started:hover {
@@ -590,7 +590,7 @@ section {
   display: block;
   width: 40px;
   height: 3px;
-  background: #349bf0;
+  background: #033a67;
   bottom: 0;
   left: calc(50% - 20px);
 }
@@ -621,7 +621,7 @@ section {
 }
 
 .featured-services .icon i {
-  color: #349bf0;
+  color: #033a67;
   font-size: 42px;
 }
 
@@ -632,12 +632,12 @@ section {
 }
 
 .featured-services .title a {
-  color: #222222;
+  color: #033a67;
   transition: 0.3s;
 }
 
 .featured-services .icon-box:hover .title a {
-  color: #349bf0;
+  color: #033a67;
 }
 
 .featured-services .description {
@@ -665,7 +665,7 @@ section {
 .about .content ul i {
   font-size: 20px;
   padding-right: 4px;
-  color: #349bf0;
+  color: #033a67;
 }
 
 .about .content p:last-child {
@@ -739,11 +739,11 @@ section {
   height: 12px;
   background-color: #fff;
   opacity: 1;
-  border: 1px solid #349bf0;
+  border: 1px solid #033a67;
 }
 
 .clients .swiper-pagination .swiper-pagination-bullet-active {
-  background-color: #349bf0;
+  background-color: #033a67;
 }
 
 /*--------------------------------------------------------------
@@ -876,14 +876,14 @@ section {
 }
 
 .services .iconbox-teal:hover .icon path {
-  fill: #11dbcf;
+  fill: #043d6c;
 }
 
 /*--------------------------------------------------------------
 # Cta
 --------------------------------------------------------------*/
 .cta {
-  background: #349bf0;
+  background: #043d6c;
   padding: 80px 0;
 }
 
@@ -914,7 +914,7 @@ section {
 
 .cta .cta-btn:hover {
   background: #fff;
-  color: #349bf0;
+  color: #043d6c;
 }
 
 @media (max-width: 1024px) {
@@ -962,7 +962,7 @@ section {
 .portfolio #portfolio-flters li:hover,
 .portfolio #portfolio-flters li.filter-active {
   color: #fff;
-  background: #349bf0;
+  background: #043d6c;
 }
 
 .portfolio #portfolio-flters li:last-child {
@@ -1075,11 +1075,11 @@ section {
   height: 12px;
   background-color: #fff;
   opacity: 1;
-  border: 1px solid #349bf0;
+  border: 1px solid #043d6c;
 }
 
 .portfolio-details .portfolio-details-slider .swiper-pagination .swiper-pagination-bullet-active {
-  background-color: #349bf0;
+  background-color: #043d6c;
 }
 
 .portfolio-details .portfolio-info {
@@ -1165,7 +1165,7 @@ section {
 }
 
 .team .member .social a:hover {
-  color: #349bf0;
+  color: #043d6c;
 }
 
 .team .member .social i {
@@ -1177,8 +1177,8 @@ section {
 # Contact
 --------------------------------------------------------------*/
 .contact .info {
-  border-top: 3px solid #349bf0;
-  border-bottom: 3px solid #349bf0;
+  border-top: 3px solid #043d6c;
+  border-bottom: 3px solid #043d6c;
   padding: 30px;
   background: #fff;
   width: 100%;
@@ -1187,7 +1187,7 @@ section {
 
 .contact .info i {
   font-size: 20px;
-  color: #349bf0;
+  color: #043d6c;
   float: left;
   width: 44px;
   height: 44px;
@@ -1204,7 +1204,7 @@ section {
   font-size: 20px;
   font-weight: 600;
   margin-bottom: 5px;
-  color: #222222;
+  color: #043d6c;
 }
 
 .contact .info p {
@@ -1234,14 +1234,14 @@ section {
 }
 
 .contact .info .social-links a:hover {
-  background: #349bf0;
+  background: #043d6c;
   color: #fff;
 }
 
 .contact .info .email:hover i,
 .contact .info .address:hover i,
 .contact .info .phone:hover i {
-  background: #349bf0;
+  background: #043d6c;
   color: #fff;
 }
 
@@ -1412,7 +1412,7 @@ section {
 # Footer
 --------------------------------------------------------------*/
 #footer {
-  background: #090909;
+  background: #043d6c;
   color: #fff;
   font-size: 14px;
   text-align: center;
@@ -1443,7 +1443,7 @@ section {
 #footer .social-links a {
   font-size: 18px;
   display: inline-block;
-  background: #349bf0;
+  background: #043d6c;
   color: #fff;
   line-height: 1;
   padding: 8px 0;
