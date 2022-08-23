@@ -33,83 +33,110 @@
 </section>
 <!-- End Hero -->
 
-<main id="main">
-  <!-- ======= Featured Services Section ======= -->
 
-  <section id="noticias" class="featured-services section-bg mt-4">
-    <div class="container" style="color: #033a67">
+<section id="featured-services" class="featured-services section-bg">
+  <div class="container">
 
-      <div class="row">
-        <div class="col-lg-6 content">
-          <h2 style="color: #033a67;">QUEM SOMOS</h2>
-
-
-
-          <p style="text-align: justify;">
-            Nossa associação foi criada objetivando proteger e representar os interesses
-            comuns dos servidores ativos e aposentados do Tribunal de Contas do Município do Rio de Janeiro.
-          </p>
-
-
-          <h4 style="color: #033a67"> MISSÃO</h4>
-
-          <p style="text-align: justify;">
-            Ser relevante na defesa de seus associados.
-
-          </p>
-
-
-          <h4 style="color: #033a67">VISÃO</h4>
-
-          <p style="text-align: justify;">
-            Ser reconhecida como entidade que defende e agrega valor ao associado.
-
-          </p>
-
+    <div class="row no-gutters">
+      <div class="col-lg-4 col-md-6">
+        <div class="icon-box">
+          <div class="icon"><i class="bi bi-laptop"></i></div>
+          <h4 class="title">QUEM SOMOS</h4>
+          <p class="description">Nossa associação foi criada objetivando proteger e representar os interesses comuns dos
+            servidores ativos e aposentados do Tribunal de Contas do Município do Rio de Janeiro.</p>
         </div>
+      </div>
+      <div class="col-lg-4 col-md-6">
+        <div class="icon-box">
+          <div class="icon"><i class="bi bi-briefcase"></i></div>
+          <h4 class="title">MISSÃO</h4>
+          <p class="description">Ser relevante na defesa de seus associados.
 
+          </p>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6">
+        <div class="icon-box">
+          <div class="icon"><i class="bi bi-calendar4-week"></i></div>
+          <h4 class="title">VISÃO</h4>
+          <p class="description">Ser reconhecida como entidade que defende e agrega valor ao associado.
 
-
-
-
-
-        <!--  <section id="noticias" class="featured-services section-bg mt-4">-->
-        <div class="col-lg-6 container">
-          <div class="row">
-            <div class="col-lg-12">
-
-              <h2>NOTÍCIAS</h2>
-              <!-- <p>Fique por dentro de tudo que está acontecendo.</p>-->
-            </div>
-
-            <div class="carousel-news col-9">
-              <carousel>
-                <slide class="img-carousel">
-                  <img src="assets/img/noticia-1.jpeg" alt="first slide" class="img-fluid "
-                    style="display: block; width: 100%;">
-                  <div class="carousel-caption d-none d-md-block">
-
-                    <!-- <div>Conheça tudo sobre...</div>-->
-                  </div>
-                </slide>
-
-                <slide class="img-carousel">
-                  <img src="assets/img/noticia-2.jpg" alt="first slide" class="img-fluid "
-                    style="display: block; width: 100%;">
-                  <div class="carousel-caption d-none d-md-block">
-
-                    <!-- <div>Fique por dentro dos acontecimentos...</div>-->
-                  </div>
-                </slide>
-
-              </carousel>
-            </div>
-          </div>
+          </p>
         </div>
       </div>
     </div>
 
-  </section>
+  </div>
+</section>
+
+
+<!-- ======= About Us Section ======= -->
+<section id="about" class="about section" style="color: #033a67">
+  <div class="container">
+
+    <div class="section-title">
+      <h2>Notícias</h2>
+      <p>Acompanhe a gente e fique por dentro de todas as novidades.</p>
+    </div>
+
+    <carousel [isAnimated]="true" [pauseOnFocus]="true" [showIndicators]="false">
+
+      <slide class="img-carousel">
+        <div class="row">
+          <div class="col-lg-6 order-1 order-lg-2">
+            <img src="assets/img/noticia-2.jpg" class="img-fluid" alt="">
+          </div>
+          <div class="col-lg-6 pt-4 pt-lg-0 order-2 order-lg-1 content">
+            <h3 class="mb-4">
+              RELATÓRIO DE DESCONTOS EM FOLHA</h3>
+            <p class="fst-italic">
+
+              Para ter acesso à Área Restrita do site onde o associado poderá consultar o relatório dos seus descontos
+              em folha, o mesmo deverá digitar na caixa cinza (ver desenho ao lado) que aparece na página inicial a sua
+              matrícula do TCMRJ (ex: 40900281 ou simplesmente 900281, sem pontos ou traços) e a senha pessoal que você
+              fornecida pela AST-RIO.
+
+              Caso ainda não tenha recebido a sua senha, compareça à AST-RIO ou se preferir entre em contato através do
+              ramal 3620 ou pelo telefone 2220-1586.
+
+              Lembre-se que a senha fornecida é pessoal e intransferível
+            </p>
+            <p>
+              <a href="" class="bottom-page">Leia mais...</a>
+            </p>
+          </div>
+        </div>
+      </slide>
+
+
+      <slide class="img-carousel">
+        <div class="row">
+          <div class="col-lg-6 order-1 order-lg-2">
+            <img src="assets/img/banner.png" class="img-fluid" alt="">
+          </div>
+          <div class="col-lg-6 pt-4 pt-lg-0 order-2 order-lg-1 content">
+            <h3 class="mb-4">BEM VINDO AO NOVO PORTAL AST-RIO</h3>
+
+            <p>
+              A AST-RIO tem o prazer de oferecer aos seus associados esse novo canal de comunicação.
+            </p>
+            <p>
+              <a href="" class="bottom-page">Leia mais...</a>
+            </p>
+          </div>
+        </div>
+
+      </slide>
+
+
+    </carousel>
+
+  </div>
+</section><!-- End About Us Section -->
+
+
+<main id="main">
+
   <!-- </section>-->
   <!-- End Featured Services Section -->
 
@@ -446,29 +473,40 @@
 
       <div class="row">
         <div class="info">
-          <div class="address">
-            <i class="bi bi-geo-alt"></i>
-            <h4>Endereço:</h4>
-            <p>
-              Rua Santa Luzia, 799 - Grupo 1702 Centro - Rio de Janeiro - RJ CEP
-              20.021-330
-            </p>
+
+
+          <div class="row no-gutters">
+            <div class="col-lg-4 col-md-6">
+              <div class="icon-box">
+                <div class="icon"><i class="bi bi-geo-alt"></i></div>
+                <h4 class="title">Endereço</h4>
+                <p class="description"> Rua Santa Luzia, 799 <br /> Grupo 1702 Centro <br />Rio de Janeiro - RJ <br />
+                  CEP
+                  20.021-330
+              </div>
+            </div>
+            <div class="col-lg-4 col-md-6">
+              <div class="icon-box">
+                <div class="icon"><i class="bi bi-envelope"></i></div>
+                <h4 class="title">Email</h4>
+                <p class="description">astrio@astrio.com.br
+
+                </p>
+              </div>
+            </div>
+            <div class="col-lg-4 col-md-6">
+              <div class="icon-box">
+                <div class="icon"><i class="bi bi-phone"></i></div>
+                <h4 class="title">Telefones</h4>
+                <p class="description">(21) 2215-0024 <br />
+                  (21) 2220-1586 FAX
+
+                </p>
+              </div>
+            </div>
           </div>
 
-          <div class="email">
-            <i class="bi bi-envelope"></i>
-            <h4>Email:</h4>
-            <p>astrio@astrio.com.br</p>
-          </div>
 
-          <div class="phone">
-            <i class="bi bi-phone"></i>
-            <h4>Telefones:</h4>
-            <p>
-              (21) 2215-0024 <br />
-              (21) 2220-1586 FAX
-            </p>
-          </div>
 
           <iframe
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3675.0553870971494!2d-43.177043684505726!3d-22.911327843794346!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x997f61e244ae4b%3A0xebdcd44310e4dc03!2sR.%20Santa%20Luzia%2C%20799%20-%20Centro%2C%20Rio%20de%20Janeiro%20-%20RJ%2C%2020030-041!5e0!3m2!1spt-BR!2sbr!4v1658288387773!5m2!1spt-BR!2sbr"

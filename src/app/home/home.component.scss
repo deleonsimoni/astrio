@@ -37,3 +37,12 @@
     font-size: 34px;
     color: dimgray;
 }
+
+
+::ng-deep .carousel-control-prev-icon {
+    background-image: url('https://apufpel.com.br/assets/img/seta_prim.png');
+}
+
+::ng-deep .carousel-control-next-icon {
+    background-image: url('https://apufpel.com.br/assets/img/seta_ult.png');
+}

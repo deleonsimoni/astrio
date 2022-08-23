@@ -597,8 +597,17 @@ section {
 
 .section-title p {
   margin-bottom: 0;
-  font-size: 14px;
+  font-size: 18px;
   color: #919191;
+}
+
+::ng-deep .carousel-control-prev,
+::ng-deep .carousel-control-next {
+  background-color: rgb(0, 0, 0);
+}
+
+.bottom-page {
+  float: right;
 }
 
 /*--------------------------------------------------------------
@@ -618,6 +627,7 @@ section {
 
 .featured-services .icon {
   margin-bottom: 15px;
+  text-align: center;
 }
 
 .featured-services .icon i {
@@ -629,6 +639,10 @@ section {
   font-weight: 700;
   margin-bottom: 15px;
   font-size: 18px;
+  text-align: center;
+  color: #033a67;
+
+
 }
 
 .featured-services .title a {
@@ -642,6 +656,7 @@ section {
 
 .featured-services .description {
   line-height: 24px;
+  text-align: center;
   font-size: 14px;
 }
 
@@ -1210,7 +1225,7 @@ section {
 .contact .info p {
   padding: 0 0 10px 60px;
   margin-bottom: 20px;
-  font-size: 14px;
+  font-size: 18px;
   color: #555555;
 }
 
