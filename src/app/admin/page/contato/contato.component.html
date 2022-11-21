@@ -1,0 +1,35 @@
+<div class="container home-update">
+  <div class="row mt-3 mb-3 justify-content-center">
+    <div class="col-md-10">
+      <h2>Contato</h2>
+      <p>Atualize os dados exibidos na seção contato da página inicial do site</p>
+    </div>
+  </div>
+
+  <form [formGroup]="contactForm" (ngSubmit)="register()">
+    <div class="row justify-content-center mb-3">
+      <div class="col-md-10">
+        <input type="text" class="home-update__title" placeholder="Endereço" formControlName="address">
+      </div>
+    </div>
+    <div class="row justify-content-center mb-3">
+      <div class="col-md-10">
+        <input type="text" class="home-update__title" placeholder="Email" formControlName="email">
+      </div>
+    </div>
+    <div class="row justify-content-center mb-3">
+      <div class="col-md-5">
+        <input type="text" class="home-update__title" placeholder="Telefone" formControlName="phone">
+      </div>
+      <div class="col-md-5">
+        <input type="text" class="home-update__title" placeholder="Fax" formControlName="fax">
+      </div>
+    </div>
+    <div class="row justify-content-center">
+      <div class="col-md-3 btns-action">
+        <a href="" class="btns-action__link">Cancelar</a>
+        <button class="btns-action__button" type="submit">Atualizar</button>
+      </div>
+    </div>
+  </form>
+</div>

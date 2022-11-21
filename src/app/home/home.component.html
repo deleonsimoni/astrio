@@ -14,15 +14,11 @@
         <div class="carousel-container">
           <div class="container">
             <h2 class="animate__animated animate__fadeInDown">
-              Bem vindo ao novo
-              <span>portal</span>
-              da AST-RIO
+              {{ landingData.home.title }}
             </h2>
 
             <p class="animate__animated animate__fadeInUp">
-              Além de informações sobre a associação, boletins publicados,
-              eventos programados e outras notícias de
-              interesse dos associados.
+              {{ landingData.home.description }}
             </p>
 
           </div>
@@ -217,7 +213,21 @@
       </div>
 
       <div class="row">
-        <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
+        <ng-container *ngIf="landingData.convenios.length < 1">
+          <p class="text-center">Não existem convênios cadastrados</p>
+        </ng-container>
+
+        <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100" *ngFor="let convenio of landingData.convenios">
+          <div class="icon-box iconbox-blue">
+            <div class="icon">
+              <img src="assets/img/clients/santander.png" class="img-fluid" />
+            </div>
+            <h4><a href="">{{ convenio.title }}</a></h4>
+            <p>{{ convenio.description }}</p>
+          </div>
+        </div>
+
+        <!-- <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
           <div class="icon-box iconbox-blue">
             <div class="icon">
               <img src="assets/img/clients/santander.png" class="img-fluid" />
@@ -273,7 +283,7 @@
               Abertura de conta, orientação especializada para investimentos.
             </p>
           </div>
-        </div>
+        </div> -->
       </div>
     </div>
   </section>
@@ -296,7 +306,7 @@
 
 
 
-  <!-- ======= Portfolio Section ======= 
+  <!-- ======= Portfolio Section =======
     <section id="portfolio" class="portfolio">
         <div class="container">
 
@@ -480,16 +490,16 @@
               <div class="icon-box">
                 <div class="icon"><i class="bi bi-geo-alt"></i></div>
                 <h4 class="title">Endereço</h4>
-                <p class="description"> Rua Santa Luzia, 799 <br /> Grupo 1702 Centro <br />Rio de Janeiro - RJ <br />
-                  CEP
-                  20.021-330
+                <p class="description">
+                  {{ landingData.contato.address }}
+                </p>
               </div>
             </div>
             <div class="col-lg-4 col-md-6">
               <div class="icon-box">
                 <div class="icon"><i class="bi bi-envelope"></i></div>
                 <h4 class="title">Email</h4>
-                <p class="description">astrio@astrio.com.br
+                <p class="description">{{ landingData.contato.email }}
 
                 </p>
               </div>
@@ -498,8 +508,9 @@
               <div class="icon-box">
                 <div class="icon"><i class="bi bi-phone"></i></div>
                 <h4 class="title">Telefones</h4>
-                <p class="description">(21) 2215-0024 <br />
-                  (21) 2220-1586 FAX
+                <p class="description">
+                  {{ landingData.contato.phone }} <br />
+                  {{ landingData.contato.fax ? landingData.contato.fax + ' FAX' : "" }}
 
                 </p>
               </div>

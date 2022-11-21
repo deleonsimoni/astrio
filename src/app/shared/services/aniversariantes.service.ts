@@ -12,4 +12,8 @@ export class AniversariantesService {
     return this.httpClient.get('http://www.astrio.kinghost.net/aniversariantes/aniversariantes');
   }
 
+  getLandingData() {
+    return this.httpClient.get("/api/public");
+  }
+
 }

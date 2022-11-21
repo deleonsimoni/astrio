@@ -1,0 +1,26 @@
+<div class="container home-update">
+  <div class="row mt-3 mb-3 justify-content-center">
+    <div class="col-md-10">
+      <h2>Home</h2>
+      <p>Atualize os dados exibidos na seção home da página inicial do site</p>
+    </div>
+  </div>
+
+  <form [formGroup]="homeForm" (ngSubmit)="register()">
+    <div class="row justify-content-center mb-2">
+      <div class="col-md-10">
+        <input type="text" class="home-update__title" placeholder="Título" formControlName="title">
+      </div>
+    </div>
+    <div class="row justify-content-center">
+      <div class="col-md-10">
+        <textarea class="home-update__content" name="" id="" cols="30" rows="10" placeholder="Descrição" formControlName="description"></textarea>
+      </div>
+    </div>
+    <div class="row justify-content-center">
+      <div class="col-md-2 text-center mt-4">
+        <button class="home-update__button" type="submit">Atualizar</button>
+      </div>
+    </div>
+  </form>
+</div>

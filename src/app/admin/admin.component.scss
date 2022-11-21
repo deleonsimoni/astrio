@@ -1,0 +1,22 @@
+.card {
+  margin-bottom: 24px;
+  padding: 16px;
+  box-shadow: 2px 2px 8px -2px #000000a1;
+  border: 0px transparent;
+  text-align: center;
+  cursor: pointer;
+  min-height: 100px;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+
+  &:hover {
+    transform: scale(1.04, 1.2);
+    transition-delay: 100ms;
+  }
+
+  &__title {
+    margin: 0px;
+    font-weight: 500;
+  }
+}
