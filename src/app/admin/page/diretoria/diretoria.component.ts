@@ -2,7 +2,7 @@ import { Component } from "@angular/core";
 import { FormBuilder, FormGroup } from "@angular/forms";
 import { DiretoriaService } from "@app/shared/services/diretoria/diretoria.service";
 
-import { take } from "rxjs";
+import { finalize, take } from "rxjs";
 
 @Component({
   selector: "app-diretoria-admin",
@@ -13,6 +13,7 @@ export class DiretoriaAdminComponent {
 
   public diretoriaForm: FormGroup
   public diretores: Array<any>;
+  public loading = false;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -22,6 +23,7 @@ export class DiretoriaAdminComponent {
   ngOnInit() {
     this.diretoriaForm = this.createForm();
 
+    this.loading = true;
     this.listAll();
   }
 
@@ -34,7 +36,12 @@ export class DiretoriaAdminComponent {
 
   private listAll() {
     this.diretoriaService.list()
-      .pipe(take(1))
+      .pipe(
+        take(1),
+        finalize(() => {
+          this.loading = false;
+        })
+      )
       .subscribe((diretores: any) => {
         this.diretores = diretores;
       })
@@ -42,6 +49,7 @@ export class DiretoriaAdminComponent {
 
   public register(): void {
     const body = this.diretoriaForm.value;
+    this.loading = true;
 
     if (this.diretoriaForm.valid) {
       this.diretoriaService.create(body)
@@ -55,6 +63,7 @@ export class DiretoriaAdminComponent {
 
   public remove(diretor: any): void {
     const id = diretor._id;
+    this.loading = true;
 
     this.diretoriaService.delete(id)
       .subscribe(_ => {

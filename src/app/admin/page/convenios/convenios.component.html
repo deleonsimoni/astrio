@@ -4,6 +4,7 @@
       <h2>Convênios</h2>
       <p>Cadastre os dados exibidos na seção convênios da página inicial do site</p>
 
+      <loading-component *ngIf="loading"></loading-component>
 
       <form [formGroup]="convenioForm" (ngSubmit)="register()">
         <div class="row justify-content-center">

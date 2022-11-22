@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { HomeService } from '@app/shared/services/home/home.service';
-import { map, take } from 'rxjs';
+import { finalize, map, take } from 'rxjs';
 
 @Component({
   selector: 'app-home-admin',
@@ -12,6 +12,7 @@ import { map, take } from 'rxjs';
 export class HomeAdminComponent implements OnInit {
 
   public homeForm: FormGroup;
+  public loading = false;
 
   constructor(
     private homeService: HomeService,
@@ -21,6 +22,7 @@ export class HomeAdminComponent implements OnInit {
   ngOnInit() {
     this.homeForm = this.createForm();
 
+    this.loading = true;
     this.listAll();
   }
 
@@ -36,7 +38,10 @@ export class HomeAdminComponent implements OnInit {
     this.homeService.list()
       .pipe(
         take(1),
-        map(home => home[0])
+        map(home => home[0]),
+        finalize(() => {
+          this.loading = false;
+        })
       )
       .subscribe(home => {
         this.homeForm.patchValue({
@@ -49,10 +54,11 @@ export class HomeAdminComponent implements OnInit {
 
   public register() {
     const body = this.homeForm.value;
+    this.loading = true;
 
     if (this.homeForm.valid) {
       this.homeService.update(body)
-        .subscribe(x => {
+        .subscribe(_ => {
           this.listAll();
         }, error => console.log(error));
     }

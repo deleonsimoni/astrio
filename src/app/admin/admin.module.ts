@@ -12,6 +12,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PresidentesAdminComponent } from './page/presidentes/presidentes.component';
 import { DiretoriaAdminComponent } from './page/diretoria/diretoria.component';
 import { QuemSomosAdminComponent } from './page/quem-somos/quem-somos.component';
+import { SharedModule } from '@app/shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { QuemSomosAdminComponent } from './page/quem-somos/quem-somos.component'
     CommonModule,
     AdminRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    SharedModule
   ],
   providers: [OnlyAdminUsersGuard],
 })

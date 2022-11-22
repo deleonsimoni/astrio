@@ -1,7 +1,7 @@
 import { Component } from "@angular/core";
 import { FormBuilder, FormGroup } from "@angular/forms";
 import { PresidenteService } from "@app/shared/services/presidente/presidente.service";
-import { take } from "rxjs";
+import { finalize, take } from "rxjs";
 
 @Component({
   selector: "app-presidentes-admin",
@@ -12,6 +12,7 @@ export class PresidentesAdminComponent {
 
   public presidenteForm: FormGroup
   public presidentes: Array<any>;
+  public loading = false;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -21,6 +22,7 @@ export class PresidentesAdminComponent {
   ngOnInit() {
     this.presidenteForm = this.createForm();
 
+    this.loading = true;
     this.listAll();
   }
 
@@ -33,7 +35,12 @@ export class PresidentesAdminComponent {
 
   private listAll() {
     this.presidenteService.list()
-      .pipe(take(1))
+      .pipe(
+        take(1),
+        finalize(() => {
+          this.loading = false;
+        })
+      )
       .subscribe((presidentes: any) => {
         this.presidentes = presidentes;
       })
@@ -41,6 +48,7 @@ export class PresidentesAdminComponent {
 
   public register(): void {
     const body = this.presidenteForm.value;
+    this.loading = true;
 
     if (this.presidenteForm.valid) {
       this.presidenteService.create(body)
@@ -54,6 +62,7 @@ export class PresidentesAdminComponent {
 
   public remove(presidente: any): void {
     const id = presidente._id;
+    this.loading = true;
 
     this.presidenteService.delete(id)
       .subscribe(_ => {

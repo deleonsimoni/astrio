@@ -1,7 +1,7 @@
 import { Component } from "@angular/core";
 import { FormBuilder, FormGroup } from "@angular/forms";
 import { QuemSomosService } from "@app/shared/services/quem-somos/quem-somos.service";
-import { take } from "rxjs";
+import { finalize, take } from "rxjs";
 
 @Component({
   selector: "app-quem-somos-admin",
@@ -11,6 +11,7 @@ import { take } from "rxjs";
 export class QuemSomosAdminComponent {
 
   public quemSomosForm: FormGroup;
+  public loading = false;
 
   constructor(
     private quemSomosService: QuemSomosService,
@@ -20,6 +21,7 @@ export class QuemSomosAdminComponent {
   ngOnInit() {
     this.quemSomosForm = this.createForm();
 
+    this.loading = true;
     this.listAll();
   }
 
@@ -34,7 +36,12 @@ export class QuemSomosAdminComponent {
 
   private listAll() {
     this.quemSomosService.list()
-      .pipe(take(1))
+      .pipe(
+        take(1),
+        finalize(() => {
+          this.loading = false;
+        })
+      )
       .subscribe((quemSomos: any) => {
         this.quemSomosForm.patchValue({
           id: quemSomos._id,
@@ -47,6 +54,7 @@ export class QuemSomosAdminComponent {
 
   public register() {
     const body = this.quemSomosForm.value;
+    this.loading = true;
 
     if (this.quemSomosForm.valid) {
       this.quemSomosService.update(body)

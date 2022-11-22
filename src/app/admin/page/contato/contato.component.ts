@@ -1,7 +1,7 @@
 import { Component } from "@angular/core";
 import { FormBuilder, FormGroup } from "@angular/forms";
 import { ContatoService } from "@app/shared/services/contato/contato.service";
-import { take } from "rxjs";
+import { finalize, take } from "rxjs";
 
 @Component({
   selector: 'app-contato-admin',
@@ -11,6 +11,7 @@ import { take } from "rxjs";
 export class ContatoAdminComponent {
 
   public contactForm: FormGroup;
+  public loading = false;
 
   constructor(
     private contatoService: ContatoService,
@@ -20,6 +21,7 @@ export class ContatoAdminComponent {
   ngOnInit() {
     this.contactForm = this.createForm();
 
+    this.loading = true;
     this.listAll();
   }
 
@@ -36,7 +38,12 @@ export class ContatoAdminComponent {
 
   private listAll() {
     this.contatoService.list()
-      .pipe(take(1))
+      .pipe(
+        take(1),
+        finalize(() => {
+          this.loading = false;
+        })
+      )
       .subscribe(contact => {
         this.contactForm.patchValue({
           id: contact._id,
@@ -51,10 +58,11 @@ export class ContatoAdminComponent {
 
   public register() {
     const body = this.contactForm.value;
+    this.loading = true;
 
     if (this.contactForm.valid) {
       this.contatoService.update(body)
-        .subscribe(x => {
+        .subscribe(_ => {
           this.listAll();
         }, error => console.log(error));
     }
