@@ -1,14 +1,20 @@
 <!-- ======= Team Section ======= -->
 <section id="diretoria" class="team section-bg">
-    <div class="container">
-        <div class="section-title text-center">
-            <h2 style="color: #033a67">DIRETORIA EXECUTIVA</h2>
-            <p></p>
+  <div class="container">
+    <div class="section-title text-center">
+      <h2 style="color: #033a67">DIRETORIA EXECUTIVA</h2>
+      <p></p>
+    </div>
+
+
+    <div class="row">
+      <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100" *ngFor="let diretor of diretores">
+        <div class="icon-box iconbox-blue">
+          <h4 style="color: #033a67">{{ diretor.title }}</h4>
+          <p>{{ diretor.name }}</p>
         </div>
-
-
-        <div class="row">
-            <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
+      </div>
+      <!-- <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
                 <div class="icon-box iconbox-blue">
 
                     <h4 style="color: #033a67">Presidência</h4>
@@ -64,9 +70,9 @@
                         Alexandre de Freitas
                     </p>
                 </div>
-            </div>
-        </div>
+            </div> -->
     </div>
+  </div>
 </section>
 
 

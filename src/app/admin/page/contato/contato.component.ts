@@ -29,7 +29,8 @@ export class ContatoAdminComponent {
       address: [null],
       email: [null],
       phone: [null],
-      fax: [null]
+      fax: [null],
+      linkMap: [null]
     })
   }
 
@@ -42,7 +43,8 @@ export class ContatoAdminComponent {
           address: contact.address,
           email: contact.email,
           phone: contact.phone,
-          fax: contact.fax
+          fax: contact.fax,
+          linkMap: contact.linkMap
         });
       })
   }

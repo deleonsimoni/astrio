@@ -1,23 +1,14 @@
 const mongoose = require('mongoose');
 
-const ContatoSchema = new mongoose.Schema(
+const DiretorSchema = new mongoose.Schema(
   {
-    address: {
+    title: {
       type: String,
       required: true,
     },
-    email: {
+    name: {
       type: String,
       required: true,
-    },
-    phone: {
-      type: String
-    },
-    fax: {
-      type: String
-    },
-    linkMap: {
-      type: String
     },
     createdAt: {
       type: Date,
@@ -29,4 +20,4 @@ const ContatoSchema = new mongoose.Schema(
   }
 );
 
-module.exports = mongoose.model('Contato', ContatoSchema);
+module.exports = mongoose.model('Diretor', DiretorSchema);

@@ -8,9 +8,10 @@
       <form [formGroup]="convenioForm" (ngSubmit)="register()">
         <div class="row justify-content-center">
           <div class="col-md-3">
-            <div class="profile">
-              <img src="../../../assets/img/images.png" class="profile__image">
-              <input type="file" name="logo" class="profile__input" id="logo" placeholder="Logo"/>
+            <div class="profile" [ngClass]="{'profile--clear': logo}">
+              <img [src]="logo" class="profile__image" *ngIf="logo">
+              <input type="file" name="logo" class="profile__input" id="logo" placeholder="Logo"
+              (change)="getProfileImageCode($event)"/>
             </div>
           </div>
           <div class="col-md-9">

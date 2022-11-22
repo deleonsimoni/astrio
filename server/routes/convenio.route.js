@@ -11,8 +11,11 @@ class ConvenioRoutes {
   }
 
   static async create(req, res) {
+    const body = JSON.parse(req.body.data);
+    const file = req.files.file;
+
     try {
-      const data = await new ConvenioController().create(req.body);
+      const data = await new ConvenioController().create(body, file);
       res.json(data);
     } catch(error) {
       res.json(error);

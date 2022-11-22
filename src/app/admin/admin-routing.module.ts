@@ -7,6 +7,8 @@ import { OnlyAdminUsersGuard } from './admin-user-guard';
 import { ContatoAdminComponent } from './page/contato/contato.component';
 import { ConveniosAdminComponent } from './page/convenios/convenios.component';
 import { HomeAdminComponent } from './page/home/home.component';
+import { PresidentesAdminComponent } from './page/presidentes/presidentes.component';
+import { DiretoriaAdminComponent } from './page/diretoria/diretoria.component';
 
 
 const routes: Routes = [
@@ -31,10 +33,12 @@ const routes: Routes = [
     component: ContatoAdminComponent
   },
   {
-    path: 'presidentes'
+    path: 'presidentes',
+    component: PresidentesAdminComponent
   },
   {
-    path: 'diretoria'
+    path: 'diretoria',
+    component: DiretoriaAdminComponent
   },
 ];
 

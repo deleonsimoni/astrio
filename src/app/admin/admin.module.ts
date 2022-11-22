@@ -9,13 +9,17 @@ import { ContatoAdminComponent } from './page/contato/contato.component';
 import { ConveniosAdminComponent } from './page/convenios/convenios.component';
 import { HomeAdminComponent } from './page/home/home.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { PresidentesAdminComponent } from './page/presidentes/presidentes.component';
+import { DiretoriaAdminComponent } from './page/diretoria/diretoria.component';
 
 @NgModule({
   declarations: [
     AdminComponent,
     HomeAdminComponent,
     ConveniosAdminComponent,
-    ContatoAdminComponent
+    ContatoAdminComponent,
+    PresidentesAdminComponent,
+    DiretoriaAdminComponent
   ],
   imports: [
     CommonModule,

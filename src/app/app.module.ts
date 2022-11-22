@@ -16,6 +16,7 @@ import { CarouselModule } from 'ngx-bootstrap/carousel';
 import { PresidentesComponent } from './presidentes/presidentes.component';
 import { QuemSomosComponent } from './quem-somos/quem-somos.component';
 import { DiretoriaComponent } from './diretoria/diretoria.component';
+import { CustomPipesModule } from './shared/pipes/custom-pipes.module';
 
 
 export function appInitializerFactory(authService: AuthService) {
@@ -29,6 +30,7 @@ export function appInitializerFactory(authService: AuthService) {
     SharedModule,
     CarouselModule,
     AppRoutingModule,
+    CustomPipesModule
   ],
   declarations: [AppComponent, HeaderComponent, HomeComponent, PresidentesComponent, QuemSomosComponent, DiretoriaComponent],
   providers: [

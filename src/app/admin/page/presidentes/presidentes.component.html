@@ -1,0 +1,39 @@
+<div class="container home-update">
+  <div class="row mt-3 mb-3 justify-content-center">
+    <div class="col-md-10">
+      <h2>Presidentes</h2>
+      <p>Atualize os dados exibidos na seção presidentes</p>
+    </div>
+  </div>
+
+  <form [formGroup]="presidenteForm" (ngSubmit)="register()">
+    <div class="row justify-content-center mb-3">
+      <div class="col-md-10">
+        <input type="text" class="home-update__title" placeholder="Nome" formControlName="name">
+      </div>
+    </div>
+    <div class="row justify-content-center mb-3">
+      <div class="col-md-10">
+        <input type="text" class="home-update__title" placeholder="Período" formControlName="period">
+      </div>
+    </div>
+    <div class="row justify-content-center">
+      <div class="col-md-3 btns-action">
+        <a href="" class="btns-action__link">Cancelar</a>
+        <button class="btns-action__button" type="submit">Cadastrar</button>
+      </div>
+    </div>
+  </form>
+
+  <hr>
+  <h3 class="mb-4">Presidentes cadastrados</h3>
+
+  <div class="row list">
+    <div *ngFor="let presidente of presidentes" class="col-md-4 list__item">
+      <div class="list__icon" (click)="remove(presidente)">
+        <i class="bi bi-trash"></i>
+      </div>
+      <p class="list__title">{{ presidente.name }}</p>
+    </div>
+  </div>
+</div>

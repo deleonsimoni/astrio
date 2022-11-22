@@ -5,9 +5,9 @@ import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
-export class ConvenioService {
+export class PresidenteService {
 
-  private api = "/api/admin/convenio";
+  private api = "/api/admin/presidente";
 
   constructor(private http: HttpClient) { }
 
@@ -15,19 +15,11 @@ export class ConvenioService {
     return this.http.get(this.api);
   }
 
-  public create(body: any, file: File): Observable<any> {
-    const formData: FormData = new FormData();
-    formData.append('data', JSON.stringify(body));
-
-    if (file) {
-      formData.append('file', file, `${file.name}`);
-    }
-
-    return this.http.post(this.api, formData);
+  public create(body: any): Observable<any> {
+    return this.http.post(this.api, body);
   }
 
   public delete(id: string): Observable<any> {
     return this.http.delete(`${this.api}/${id}`);
   }
-
 }
