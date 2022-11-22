@@ -19,6 +19,18 @@ const envVarsSchema = Joi.object({
     .description('JWT Secret required to sign'),
   MONGO_HOST: Joi.string().required().description('Mongo DB host url'),
   MONGO_PORT: Joi.number().default(27017),
+  AWS_SES_ID: Joi.string().allow('')
+    .description('Path Developer AWS S3'),
+  AWS_SES_KEY: Joi.string().allow('')
+    .description('Path Developer AWS S3'),
+  AWS_ACCESS_KEY: Joi.string()
+    .description('Secret Main'),
+  AWS_SECRET_ACCESS_KEY: Joi.string()
+    .description('Secret Main'),
+  MAIL_FROM: Joi.string()
+    .description('Email'),
+  MAIL_SECRET: Joi.string()
+    .description('Secret Main'),
 })
   .unknown()
   .required();
@@ -38,6 +50,11 @@ const config = {
     host: envVars.MONGO_HOST,
     port: envVars.MONGO_PORT,
   },
+  AWS_ACCESS_KEY: envVars.AWS_ACCESS_KEY,
+  AWS_SECRET_ACCESS_KEY: envVars.AWS_SECRET_ACCESS_KEY,
+  PATH_S3_DEV: envVars.PATH_S3_DEV,
+  AWS_SES_ID: envVars.AWS_SES_ID,
+  AWS_SES_KEY: envVars.AWS_SES_KEY
 };
 
 module.exports = config;
