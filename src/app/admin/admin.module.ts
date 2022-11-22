@@ -11,6 +11,7 @@ import { HomeAdminComponent } from './page/home/home.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PresidentesAdminComponent } from './page/presidentes/presidentes.component';
 import { DiretoriaAdminComponent } from './page/diretoria/diretoria.component';
+import { QuemSomosAdminComponent } from './page/quem-somos/quem-somos.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { DiretoriaAdminComponent } from './page/diretoria/diretoria.component';
     ConveniosAdminComponent,
     ContatoAdminComponent,
     PresidentesAdminComponent,
-    DiretoriaAdminComponent
+    DiretoriaAdminComponent,
+    QuemSomosAdminComponent
   ],
   imports: [
     CommonModule,

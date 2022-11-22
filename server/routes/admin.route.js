@@ -10,22 +10,23 @@ const ContatoRoutes = require('./contato.route');
 const ConvenioRoutes = require('./convenio.route');
 const PresidenteRoutes = require('./presidente.route');
 const DiretorRoutes = require('./diretor.route');
+const QuemSomosRoutes = require('./quem-somos.route');
 
 // router.use(passport.authenticate('jwt', { session: false }));
 
-// HomeRoutes
+// Home
 router.route('/home')
   .get(asyncHandler(HomeRoutes.list))
   .put(asyncHandler(HomeRoutes.update));
 
 
-// ContatoRoutes
+// Contato
 router.route('/contato')
   .get(asyncHandler(ContatoRoutes.list))
   .put(asyncHandler(ContatoRoutes.update));
 
 
-// ConvenioRoutes
+// Convenio
 router.route('/convenio')
   .get(asyncHandler(ConvenioRoutes.list))
 router
@@ -35,7 +36,7 @@ router.route('/convenio/:id')
   .delete(asyncHandler(ConvenioRoutes.delete));
 
 
-// PresidenteRoutes
+// Presidente
 router.route('/presidente')
   .get(asyncHandler(PresidenteRoutes.list))
   .post(asyncHandler(PresidenteRoutes.create))
@@ -50,5 +51,10 @@ router.route('/diretor')
 
 router.route('/diretor/:id')
   .delete(asyncHandler(DiretorRoutes.delete));
+
+// Quem somos
+router.route('/quem-somos')
+  .get(asyncHandler(QuemSomosRoutes.list))
+  .put(asyncHandler(QuemSomosRoutes.update));
 
 module.exports = router;

@@ -6,6 +6,7 @@ export class LandingData {
   home: any;
   contato: any;
   convenios: Array<any>;
+  quemSomos: any
 }
 
 @Component({

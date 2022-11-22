@@ -9,6 +9,7 @@ import { ConveniosAdminComponent } from './page/convenios/convenios.component';
 import { HomeAdminComponent } from './page/home/home.component';
 import { PresidentesAdminComponent } from './page/presidentes/presidentes.component';
 import { DiretoriaAdminComponent } from './page/diretoria/diretoria.component';
+import { QuemSomosAdminComponent } from './page/quem-somos/quem-somos.component';
 
 
 const routes: Routes = [
@@ -22,7 +23,8 @@ const routes: Routes = [
     component: HomeAdminComponent,
   },
   {
-    path: 'quem-somos'
+    path: 'quem-somos',
+    component: QuemSomosAdminComponent
   },
   {
     path: 'convenios',
