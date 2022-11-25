@@ -10,38 +10,52 @@ import { HomeAdminComponent } from './page/home/home.component';
 import { PresidentesAdminComponent } from './page/presidentes/presidentes.component';
 import { DiretoriaAdminComponent } from './page/diretoria/diretoria.component';
 import { QuemSomosAdminComponent } from './page/quem-somos/quem-somos.component';
+import { NoticiasComponent } from './page/noticias/noticias.component';
 
 
 const routes: Routes = [
   {
     path: '',
-    // canActivate: [OnlyAdminUsersGuard],
-    component: AdminComponent
-  },
-  {
-    path: 'home',
-    component: HomeAdminComponent,
-  },
-  {
-    path: 'quem-somos',
-    component: QuemSomosAdminComponent
-  },
-  {
-    path: 'convenios',
-    component: ConveniosAdminComponent
-  },
-  {
-    path: 'contato',
-    component: ContatoAdminComponent
-  },
-  {
-    path: 'presidentes',
-    component: PresidentesAdminComponent
-  },
-  {
-    path: 'diretoria',
-    component: DiretoriaAdminComponent
-  },
+    children: [
+      {
+        path: '',
+        redirectTo: '/admin/menu',
+        pathMatch: 'full',
+      },
+      {
+        path: 'menu',
+        component: AdminComponent
+      },
+      {
+        path: 'home',
+        component: HomeAdminComponent,
+      },
+      {
+        path: 'quem-somos',
+        component: QuemSomosAdminComponent
+      },
+      {
+        path: 'convenios',
+        component: ConveniosAdminComponent
+      },
+      {
+        path: 'contato',
+        component: ContatoAdminComponent
+      },
+      {
+        path: 'presidentes',
+        component: PresidentesAdminComponent
+      },
+      {
+        path: 'diretoria',
+        component: DiretoriaAdminComponent
+      },
+      {
+        path: 'noticia',
+        component: NoticiasComponent
+      }
+    ],
+  }
 ];
 
 @NgModule({

@@ -13,6 +13,7 @@ import { PresidentesAdminComponent } from './page/presidentes/presidentes.compon
 import { DiretoriaAdminComponent } from './page/diretoria/diretoria.component';
 import { QuemSomosAdminComponent } from './page/quem-somos/quem-somos.component';
 import { SharedModule } from '@app/shared/shared.module';
+import { NoticiasComponent } from './page/noticias/noticias.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { SharedModule } from '@app/shared/shared.module';
     ContatoAdminComponent,
     PresidentesAdminComponent,
     DiretoriaAdminComponent,
-    QuemSomosAdminComponent
+    QuemSomosAdminComponent,
+    NoticiasComponent
   ],
   imports: [
     CommonModule,

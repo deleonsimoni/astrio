@@ -1,0 +1,10 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 news">
+      <h2 class="news__title">{{ noticia.title }}</h2>
+      <p class="news__description">{{ noticia.description }}</p>
+
+      <img [src]="noticia.logo | imagePathComplement" alt="" srcset="" class="news__logo">
+    </div>
+  </div>
+</div>

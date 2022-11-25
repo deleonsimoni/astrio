@@ -70,9 +70,11 @@
       <p>Acompanhe a gente e fique por dentro de todas as novidades.</p>
     </div>
 
-    <carousel [isAnimated]="true" [pauseOnFocus]="true" [showIndicators]="false">
+    <ng-container *ngIf="landingData.noticias.length > 0">
 
-      <!--<slide class="img-carousel">
+      <carousel [isAnimated]="true" [pauseOnFocus]="true" [showIndicators]="false">
+
+        <!--<slide class="img-carousel">
         <div class="row">
           <div class="col-lg-6 order-1 order-lg-2">
             <img src="assets/img/noticia-2.jpg" class="img-fluid" alt="">
@@ -100,7 +102,7 @@
       </slide>-->
 
 
-      <slide class="img-carousel">
+        <!-- <slide class="img-carousel">
         <div class="row">
           <div class="col-lg-6 order-1 order-lg-2">
             <img src="assets/img/banner.png" class="img-fluid" alt="">
@@ -117,10 +119,27 @@
           </div>
         </div>
 
-      </slide>
+      </slide> -->
+
+        <slide class="img-carousel" *ngFor="let noticia of landingData.noticias" (click)="viewMore(noticia)">
+          <div class="row">
+            <div class="col-lg-6 order-1 order-lg-2">
+              <img [src]="noticia.logo | imagePathComplement" class="img-fluid" alt="">
+            </div>
+            <div class="col-lg-6 pt-4 pt-lg-0 order-2 order-lg-1 content">
+              <h3 class="mb-4">{{ noticia.title }}</h3>
+              <p>{{ noticia.description }}</p>
+              <p>
+                <a href="" class="bottom-page">Leia mais...</a>
+              </p>
+            </div>
+          </div>
+
+        </slide>
 
 
-    </carousel>
+      </carousel>
+    </ng-container>
 
   </div>
 </section><!-- End About Us Section -->
@@ -212,7 +231,8 @@
           <p class="text-center">Não existem convênios cadastrados</p>
         </ng-container>
 
-        <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100" *ngFor="let convenio of landingData.convenios">
+        <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100"
+          *ngFor="let convenio of landingData.convenios">
           <div class="icon-box iconbox-blue">
             <div class="icon">
               <img [src]="convenio.logo | imagePathComplement" class="img-fluid" />

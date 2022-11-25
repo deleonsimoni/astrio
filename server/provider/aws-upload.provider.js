@@ -8,14 +8,15 @@ class AWSUpload {
     secretAccessKey: config.AWS_SECRET_ACCESS_KEY
   });
 
-  uploadFile(key, file) {
+  uploadFile(file) {
     let s3Config = {
       Bucket: 'leped',
-      Key: key,
-      Body: file
+      Key: file.name,
+      Body: file.data,
+      ContentType: file.type
     };
 
-    return save(s3Config);
+    return this.save(s3Config);
   }
 
   uploadBase64(file) {

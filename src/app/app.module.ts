@@ -17,6 +17,9 @@ import { PresidentesComponent } from './presidentes/presidentes.component';
 import { QuemSomosComponent } from './quem-somos/quem-somos.component';
 import { DiretoriaComponent } from './diretoria/diretoria.component';
 import { CustomPipesModule } from './shared/pipes/custom-pipes.module';
+import { NoticiaComponent } from './noticia/noticia.component';
+import { ToastrModule } from 'ngx-toastr';
+import { OnlyAdminUsersGuard } from './admin/admin-user-guard';
 
 
 export function appInitializerFactory(authService: AuthService) {
@@ -30,10 +33,20 @@ export function appInitializerFactory(authService: AuthService) {
     SharedModule,
     CarouselModule,
     AppRoutingModule,
-    CustomPipesModule
+    CustomPipesModule,
+    ToastrModule.forRoot()
   ],
-  declarations: [AppComponent, HeaderComponent, HomeComponent, PresidentesComponent, QuemSomosComponent, DiretoriaComponent],
+  declarations: [
+    AppComponent,
+    HeaderComponent,
+    HomeComponent,
+    PresidentesComponent,
+    QuemSomosComponent,
+    DiretoriaComponent,
+    NoticiaComponent
+  ],
   providers: [
+    OnlyAdminUsersGuard,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: AuthHeaderInterceptor,

@@ -1,4 +1,5 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { Router } from '@angular/router';
 import { AniversariantesService } from '@app/shared/services/aniversariantes.service';
 import { PublicService } from '@app/shared/services/public/public.service';
 
@@ -6,7 +7,9 @@ export class LandingData {
   home: any;
   contato: any;
   convenios: Array<any>;
-  quemSomos: any
+  quemSomos: any;
+  noticias: Array<any>;
+  estatuto: string;
 }
 
 @Component({
@@ -25,7 +28,8 @@ export class HomeComponent implements OnInit {
 
   constructor(
     private aniversariantesService: AniversariantesService,
-    private publicService: PublicService
+    private publicService: PublicService,
+    private router: Router
   ) { }
 
   ngOnInit(): void {
@@ -39,6 +43,7 @@ export class HomeComponent implements OnInit {
 
     this.publicService.getLandingData()
       .subscribe((data: any) => {
+        console.log(data);
         this.landingData = data;
 
         if (this.landingData.contato.linkMap) {
@@ -59,6 +64,8 @@ export class HomeComponent implements OnInit {
     } catch (err) { }
   }
 
-
+  viewMore(noticia: any) {
+    this.router.navigate(['/noticia/', noticia._id])
+  }
 
 }

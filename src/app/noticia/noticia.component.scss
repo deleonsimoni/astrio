@@ -1,0 +1,23 @@
+.news {
+  &__title {
+    margin: 20px 0px 16px 0px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #8b8b8b;
+  }
+
+  &__description {
+    font-size: 16px;
+    font-weight: 400;
+    word-break: break-word;
+    white-space: pre-line;
+    margin-bottom: 60px;
+  }
+
+  &__logo {
+    margin: auto;
+    display: flex;
+    margin-bottom: 60px;
+    max-height: 50%;
+  }
+
+}

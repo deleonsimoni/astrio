@@ -4,35 +4,17 @@
     <p>Selecione uma das categorias abaixo para atualizar os dados</p>
   </div>
 
+  <loading-component *ngIf="loading"></loading-component>
+
   <div class="row">
-    <div class="col-lg-4 col-md-3">
-      <div class="card">
-        <p class="card__title" (click)="navigate('home')">Home</p>
+    <div class="col-lg-4 col-md-3" *ngFor="let item of menu">
+      <div class="card" *ngIf="item.path" (click)="navigate(item.path)">
+        <p class="card__title">{{ item.title }}</p>
       </div>
-    </div>
-    <div class="col-lg-4 col-md-3">
-      <div class="card">
-        <p class="card__title" (click)="navigate('quem-somos')">Quem somos</p>
-      </div>
-    </div>
-    <div class="col-lg-4 col-md-3">
-      <div class="card">
-        <p class="card__title" (click)="navigate('convenios')">Convênios</p>
-      </div>
-    </div>
-    <div class="col-lg-4 col-md-3">
-      <div class="card">
-        <p class="card__title" (click)="navigate('contato')">Contato</p>
-      </div>
-    </div>
-    <div class="col-lg-4 col-md-3">
-      <div class="card">
-        <p class="card__title" (click)="navigate('presidentes')">Presidentes</p>
-      </div>
-    </div>
-    <div class="col-lg-4 col-md-3">
-      <div class="card">
-        <p class="card__title" (click)="navigate('diretoria')">Diretoria / Conselho</p>
+      <div class="card file" *ngIf="!item.path">
+        <i class="bi bi-cloud-upload-fill"></i>
+        <p class="card__title">{{ item.title }}</p>
+        <input type="file" class="file__input" (change)="getFile($event)">
       </div>
     </div>
   </div>

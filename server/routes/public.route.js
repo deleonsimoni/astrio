@@ -21,4 +21,5 @@ router.route('/presidentes')
 router.route('/diretores')
   .get(asyncHandler(DiretorRoutes.list));
 
+
 module.exports = router;

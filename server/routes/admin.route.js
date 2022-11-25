@@ -11,6 +11,8 @@ const ConvenioRoutes = require('./convenio.route');
 const PresidenteRoutes = require('./presidente.route');
 const DiretorRoutes = require('./diretor.route');
 const QuemSomosRoutes = require('./quem-somos.route');
+const NoticiaRoutes = require('./noticia.route');
+const EstatutoRoutes = require('./estatuto.route');
 
 // router.use(passport.authenticate('jwt', { session: false }));
 
@@ -30,7 +32,7 @@ router.route('/contato')
 router.route('/convenio')
   .get(asyncHandler(ConvenioRoutes.list))
 router
-  .post("/convenio", [fileUpload()],asyncHandler(ConvenioRoutes.create))
+  .post("/convenio", [fileUpload()], asyncHandler(ConvenioRoutes.create))
 
 router.route('/convenio/:id')
   .delete(asyncHandler(ConvenioRoutes.delete));
@@ -56,5 +58,20 @@ router.route('/diretor/:id')
 router.route('/quem-somos')
   .get(asyncHandler(QuemSomosRoutes.list))
   .put(asyncHandler(QuemSomosRoutes.update));
+
+// Notícias
+router.route('/noticia')
+  .get(asyncHandler(NoticiaRoutes.list))
+router
+  .post("/noticia", [fileUpload()], asyncHandler(NoticiaRoutes.create))
+
+router.route('/noticia/:id')
+  .delete(asyncHandler(NoticiaRoutes.delete));
+
+// Estatuto
+router
+  .post("/estatuto", [fileUpload()], asyncHandler(EstatutoRoutes.update));
+router
+  .get("/estatuto", asyncHandler(EstatutoRoutes.list));
 
 module.exports = router;

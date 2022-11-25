@@ -1,12 +1,12 @@
 <div class="container convenios-update">
   <div class="row mt-3 mb-3 justify-content-center">
     <div class="col-md-10">
-      <h2>Convênios</h2>
-      <p>Cadastre os dados exibidos na seção convênios da página inicial do site</p>
+      <h2>Notícias</h2>
+      <p>Cadastre os dados exibidos na seção notícias da página inicial do site</p>
 
       <loading-component *ngIf="loading"></loading-component>
 
-      <form [formGroup]="convenioForm" (ngSubmit)="register()">
+      <form [formGroup]="noticiaForm" (ngSubmit)="register()">
         <div class="row justify-content-center">
           <div class="col-md-3">
             <div class="profile" [ngClass]="{'profile--clear': logo}">
@@ -38,14 +38,14 @@
       </form>
 
       <hr>
-      <h3 class="mb-4">Convênios cadastrados</h3>
+      <h3 class="mb-4">Notícias cadastradas</h3>
 
       <div class="row list">
-        <div *ngFor="let convenio of convenios" class="col-md-4 list__item">
-          <div class="list__icon" (click)="remove(convenio)">
+        <div *ngFor="let noticia of noticias" class="col-md-4 list__item">
+          <div class="list__icon" (click)="remove(noticia)">
             <i class="bi bi-trash"></i>
           </div>
-          <p class="list__title">{{ convenio.title }}</p>
+          <p class="list__title">{{ noticia.title }}</p>
         </div>
       </div>
     </div>

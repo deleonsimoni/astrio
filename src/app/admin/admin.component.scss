@@ -8,7 +8,12 @@
   min-height: 100px;
   display: flex;
   justify-content: center;
-  align-content: center;
+  align-items: center;
+  flex-flow: row nowrap;
+
+  .bi {
+    margin-right: 12px;
+  }
 
   &:hover {
     transform: scale(1.04, 1.2);
@@ -18,5 +23,20 @@
   &__title {
     margin: 0px;
     font-weight: 500;
+  }
+}
+
+.file {
+  cursor: pointer;
+
+  &__input {
+    cursor: pointer;
+    position: absolute;
+    border-radius: 4px;
+    z-index: 999;
+    bottom: 0px;
+    height: 100%;
+    width: 100%;
+    opacity: 0;
   }
 }
