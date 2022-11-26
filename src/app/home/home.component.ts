@@ -4,12 +4,12 @@ import { AniversariantesService } from '@app/shared/services/aniversariantes.ser
 import { PublicService } from '@app/shared/services/public/public.service';
 
 export class LandingData {
-  home: any;
-  contato: any;
-  convenios: Array<any>;
-  quemSomos: any;
-  noticias: Array<any>;
-  estatuto: string;
+  home: { title: string, description: string };
+  contato: { address: string, email: string, phone: string, fax: string, linkMap: string };
+  convenios: Array<{ logo: string, title: string, description: string }>;
+  quemSomos: { aboutUs: string, mission: string, vision: string };
+  noticias: Array<{ logo: string, title: string, description: string }>;
+  estatuto: { file: string };
 }
 
 @Component({
@@ -22,7 +22,7 @@ export class HomeComponent implements OnInit {
   aniversariantes: any = [];
   mes: any = (new Date().getUTCMonth() + 1);
   dia: any = new Date().getDate();
-  public landingData: LandingData;
+  public landingData: LandingData = new LandingData();
 
   @ViewChild('scrollMe') private myScrollContainer: ElementRef;
 
@@ -43,7 +43,6 @@ export class HomeComponent implements OnInit {
 
     this.publicService.getLandingData()
       .subscribe((data: any) => {
-        console.log(data);
         this.landingData = data;
 
         if (this.landingData.contato.linkMap) {

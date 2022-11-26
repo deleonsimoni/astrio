@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 
 import { AuthService } from '@app/shared/services';
 import { ToastrService } from 'ngx-toastr';
+import { finalize } from 'rxjs';
 
 @Component({
   selector: 'app-login',
@@ -14,6 +15,7 @@ export class LoginComponent {
 
   public loginForm: FormGroup;
   public error: string;
+  public loading: boolean = false;
 
   constructor(
     private router: Router,
@@ -31,9 +33,15 @@ export class LoginComponent {
   }
 
   login(): void {
-    console.log('x')
     if (this.loginForm.valid) {
+      this.loading = true
+
       this.authService.login(this.loginForm.value)
+        .pipe(
+          finalize(() => {
+            this.loading = false;
+          })
+        )
         .subscribe((res: any) => {
           this.router.navigate(['/admin']);
         }, err => {

@@ -36,21 +36,21 @@ export class AuthService {
     email: string,
     password: string,
     repeatPassword: string
-  ): Observable<User> {
+  ): Observable<any> {
     return this.http
       .post<AuthResponse>('/api/auth/register', {
         fullname,
         email,
         password,
         repeatPassword,
-      })
-      .pipe(
-        tap(({ token, user }) => {
-          this.setUser(user);
-          this.tokenStorage.saveToken(token);
-        }),
-        pluck('user')
-      );
+      });
+      // .pipe(
+      //   tap(({ token, user }) => {
+      //     this.setUser(user);
+      //     this.tokenStorage.saveToken(token);
+      //   }),
+      //   pluck('user')
+      // );
   }
 
   setUser(user: User | null): void {

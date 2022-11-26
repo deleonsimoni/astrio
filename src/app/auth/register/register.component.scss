@@ -1,4 +1,4 @@
-.login {
+.register {
   background-color: #043d6c;
   height: calc(100vh - 70px);
 
@@ -38,5 +38,32 @@
     font-size: 14px;
     font-weight: 500;
     cursor: pointer;
+  }
+}
+
+.error {
+  color: #e10303;
+  font-size: 14px;
+  font-weight: 500;
+  margin-top: 4px;
+}
+
+.cancel-link {
+  color: #e10303;
+  font-size: 16px;
+  text-align: center;
+  margin-top: 10px;
+}
+
+.success {
+  background: #198754;
+  padding: 8px;
+  border-radius: 4px;
+  margin-bottom: 10px;
+
+  &__text {
+    font-size: 14px;
+    color: #fff;
+    margin: 0px;
   }
 }

@@ -4,7 +4,7 @@
   </div>
 </div>
 
-<section id="hero">
+<section id="hero" *ngIf="landingData.home">
   <div id="heroCarousel" data-bs-interval="5000" class="carousel slide carousel-fade" data-bs-ride="carousel">
     <ol class="carousel-indicators" id="hero-carousel-indicators"></ol>
 
@@ -30,7 +30,7 @@
 <!-- End Hero -->
 
 
-<section id="featured-services" class="featured-services section-bg">
+<section id="featured-services" class="featured-services section-bg" *ngIf="landingData.quemSomos">
   <div class="container">
 
     <div class="row no-gutters">
@@ -62,7 +62,7 @@
 
 
 <!-- ======= About Us Section ======= -->
-<section id="noticias" class="noticias" style="color: #033a67">
+<section id="noticias" class="noticias" style="color: #033a67" *ngIf="landingData.noticias">
   <div class="container">
 
     <div class="section-title">
@@ -70,76 +70,24 @@
       <p>Acompanhe a gente e fique por dentro de todas as novidades.</p>
     </div>
 
-    <ng-container *ngIf="landingData.noticias.length > 0">
-
-      <carousel [isAnimated]="true" [pauseOnFocus]="true" [showIndicators]="false">
-
-        <!--<slide class="img-carousel">
-        <div class="row">
-          <div class="col-lg-6 order-1 order-lg-2">
-            <img src="assets/img/noticia-2.jpg" class="img-fluid" alt="">
-          </div>
-          <div class="col-lg-6 pt-4 pt-lg-0 order-2 order-lg-1 content">
-            <h3 class="mb-4">
-              RELATÓRIO DE DESCONTOS EM FOLHA</h3>
-            <p class="fst-italic">
-
-              Para ter acesso à Área Restrita do site onde o associado poderá consultar o relatório dos seus descontos
-              em folha, o mesmo deverá digitar na caixa cinza (ver desenho ao lado) que aparece na página inicial a sua
-              matrícula do TCMRJ (ex: 40900281 ou simplesmente 900281, sem pontos ou traços) e a senha pessoal que você
-              fornecida pela AST-RIO.
-
-              Caso ainda não tenha recebido a sua senha, compareça à AST-RIO ou se preferir entre em contato através do
-              ramal 3620 ou pelo telefone 2220-1586.
-
-              Lembre-se que a senha fornecida é pessoal e intransferível
-            </p>
-            <p>
-              <a href="" class="bottom-page">Leia mais...</a>
-            </p>
-          </div>
-        </div>
-      </slide>-->
-
-
-        <!-- <slide class="img-carousel">
-        <div class="row">
-          <div class="col-lg-6 order-1 order-lg-2">
-            <img src="assets/img/banner.png" class="img-fluid" alt="">
-          </div>
-          <div class="col-lg-6 pt-4 pt-lg-0 order-2 order-lg-1 content">
-            <h3 class="mb-4">BEM VINDO AO NOVO PORTAL AST-RIO</h3>
-
-            <p>
-              A AST-RIO tem o prazer de oferecer aos seus associados esse novo canal de comunicação.
-            </p>
-            <p>
-              <a href="" class="bottom-page">Leia mais...</a>
-            </p>
-          </div>
-        </div>
-
-      </slide> -->
-
-        <slide class="img-carousel" *ngFor="let noticia of landingData.noticias" (click)="viewMore(noticia)">
-          <div class="row">
-            <div class="col-lg-6 order-1 order-lg-2">
-              <img [src]="noticia.logo | imagePathComplement" class="img-fluid" alt="">
+    <div class="row justify-content-center">
+      <div class="col-md-10">
+        <carousel *ngIf="landingData.noticias.length > 0">
+          <slide *ngFor="let noticia of landingData.noticias" class="noticia">
+            <img [src]="noticia.logo | imagePathComplement" class="noticia__banner" (click)="viewMore(noticia)">
+            <div class="carousel-caption d-none d-md-block noticia__content info-content">
+              <div class="info-content__action">
+                <h3 class="info-content__title">{{ noticia.title }}</h3>
+                <div class="btn-action" (click)="viewMore(noticia)">
+                  <p class="btn-action__title">clique aqui para ver mais</p>
+                </div>
+              </div>
+              <p class="info-content__description">{{ noticia.description }}</p>
             </div>
-            <div class="col-lg-6 pt-4 pt-lg-0 order-2 order-lg-1 content">
-              <h3 class="mb-4">{{ noticia.title }}</h3>
-              <p>{{ noticia.description }}</p>
-              <p>
-                <a href="" class="bottom-page">Leia mais...</a>
-              </p>
-            </div>
-          </div>
-
-        </slide>
-
-
-      </carousel>
-    </ng-container>
+          </slide>
+        </carousel>
+      </div>
+    </div>
 
   </div>
 </section><!-- End About Us Section -->
@@ -219,7 +167,7 @@
 
 
   <!-- ======= Services Section ======= -->
-  <section id="services" class="services">
+  <section id="services" class="services" *ngIf="landingData.convenios">
     <div class="container">
       <div class="section-title">
         <h2 style="color: #033a67">Convênios</h2>
@@ -237,7 +185,7 @@
             <div class="icon">
               <img [src]="convenio.logo | imagePathComplement" class="img-fluid" />
             </div>
-            <h4><a href="">{{ convenio.title }}</a></h4>
+            <h4><a class="disabled" href="#">{{ convenio.title }}</a></h4>
             <p>{{ convenio.description }}</p>
           </div>
         </div>
@@ -486,7 +434,7 @@
     </section>End Portfolio Section -->
 
   <!-- ======= Contact Section ======= -->
-  <section id="contact" class="contact">
+  <section id="contact" class="contact" *ngIf="landingData.contato">
     <div class="container">
       <div class="section-title">
         <h2 style="color: #033a67">Contato</h2>

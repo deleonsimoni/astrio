@@ -4,17 +4,24 @@
       <div class="login__card">
         <p class="card__title">Login</p>
 
+        <loading-component *ngIf="loading"></loading-component>
+
         <form [formGroup]="loginForm" (ngSubmit)="login()">
           <div class="mb-3">
             <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Digite seu email" formControlName="email">
           </div>
           <div class="mb-3">
-            <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Digite sua senha" formControlName="password">
+            <input type="password" class="form-control" id="exampleFormControlInput1" placeholder="Digite sua senha" formControlName="password">
           </div>
           <p *ngIf="error" class="text-danger">{{ error }}</p>
 
-          <div class="d-grid gap-2">
+          <div class="d-grid gap-2 mt-3">
             <button class="btn btn-primary" type="submit">ENTRAR</button>
+            <hr>
+            <div class="register">
+              <p class="register__text">Não possui uma conta de acesso?</p>
+              <a routerLink="/auth/register" class="register__link">Crie seu cadastro</a>
+            </div>
           </div>
         </form>
       </div>

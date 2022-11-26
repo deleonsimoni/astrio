@@ -6,17 +6,41 @@ import {
   Validators,
   ValidationErrors,
   AbstractControl,
+  FormBuilder,
 } from '@angular/forms';
 
 import { AuthService } from '@app/shared/services';
+import { finalize } from 'rxjs';
 
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
-  styleUrls: ['../auth.component.scss'],
+  styleUrls: ['./register.component.scss'],
 })
 export class RegisterComponent {
-  constructor(private router: Router, private authService: AuthService) {}
+
+  public registerForm: FormGroup;
+  public successMessage: string;
+  public loading: boolean = false;
+
+  constructor(
+    private router: Router,
+    private authService: AuthService,
+    private formBuilder: FormBuilder
+  ) {
+
+    this.registerForm = this.createForm();
+
+  }
+
+  private createForm(): FormGroup {
+    return this.formBuilder.group({
+      fullname: [null, [Validators.required]],
+      email: [null, [Validators.required, Validators.email]],
+      password: [null, [Validators.required]],
+      repeatPassword: [null, [Validators.required, this.passwordsMatchValidator]]
+    })
+  }
 
   passwordsMatchValidator(control: FormControl): ValidationErrors | null {
     const password = control.root.get('password');
@@ -27,44 +51,44 @@ export class RegisterComponent {
       : null;
   }
 
-  userForm = new FormGroup({
-    fullname: new FormControl('', [Validators.required]),
-    email: new FormControl('', [Validators.required, Validators.email]),
-    password: new FormControl('', [Validators.required]),
-    repeatPassword: new FormControl('', [
-      Validators.required,
-      this.passwordsMatchValidator,
-    ]),
-  });
-
   get fullname(): AbstractControl {
-    return this.userForm.get('fullname')!;
+    return this.registerForm.get('fullname')!;
   }
 
-  get email(): AbstractControl {
-    return this.userForm.get('email')!;
+  get email(): AbstractControl {console.log(this.registerForm.get('email'))
+    return this.registerForm.get('email')!;
   }
 
   get password(): AbstractControl {
-    return this.userForm.get('password')!;
+    return this.registerForm.get('password')!;
   }
 
   get repeatPassword(): AbstractControl {
-    return this.userForm.get('repeatPassword')!;
+    return this.registerForm.get('repeatPassword')!;
   }
 
   register(): void {
-    if (this.userForm.invalid) {
+
+    if (this.registerForm.invalid) {
+      this.fullname.markAsDirty();
       return;
     }
 
+    this.loading = true;
+
     const { fullname, email, password, repeatPassword } =
-      this.userForm.getRawValue();
+      this.registerForm.getRawValue();
 
     this.authService
       .register(fullname, email, password, repeatPassword)
+      .pipe(
+        finalize(() => {
+          this.loading = false;
+        })
+      )
       .subscribe(() => {
-        this.router.navigate(['']);
+        this.registerForm.reset();
+        this.successMessage = "Seu foi cadastro concluído com sucesso, aguarde a aprovação do administrador!"
       });
   }
 }
