@@ -10,7 +10,7 @@ class AWSUpload {
 
   uploadFile(file) {
     let s3Config = {
-      Bucket: 'leped',
+      Bucket: config.BUCKET,
       Key: file.name,
       Body: file.data,
       ContentType: file.type
@@ -21,7 +21,7 @@ class AWSUpload {
 
   uploadBase64(file) {
     let s3Config = {
-      Bucket: 'leped',
+      Bucket: config.BUCKET,
       Key: "images/" + file.name,
       Body: file.data,
       ACL: "public-read",

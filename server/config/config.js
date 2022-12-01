@@ -27,6 +27,8 @@ const envVarsSchema = Joi.object({
     .description('Secret Main'),
   AWS_SECRET_ACCESS_KEY: Joi.string()
     .description('Secret Main'),
+  BUCKET: Joi.string()
+    .description('Bucket AWS'),
   MAIL_FROM: Joi.string()
     .description('Email'),
   MAIL_SECRET: Joi.string()
@@ -54,7 +56,8 @@ const config = {
   AWS_SECRET_ACCESS_KEY: envVars.AWS_SECRET_ACCESS_KEY,
   PATH_S3_DEV: envVars.PATH_S3_DEV,
   AWS_SES_ID: envVars.AWS_SES_ID,
-  AWS_SES_KEY: envVars.AWS_SES_KEY
+  AWS_SES_KEY: envVars.AWS_SES_KEY,
+  BUCKET: envVars.BUCKET
 };
 
 module.exports = config;
