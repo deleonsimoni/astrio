@@ -28,7 +28,7 @@ export class UsersComponent implements OnInit {
   public isAdmin(user: any, isAdmin: any) {
     this.adminService.markeAdmin(user._id, isAdmin)
       .subscribe(() => {
-        user.payment.icPaid = true;
+        this.listAll();
       }, err => {
         console.log(err);
       });

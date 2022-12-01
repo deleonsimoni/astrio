@@ -45,6 +45,8 @@ export class AuthService {
         email,
         password,
         repeatPassword,
+        dateBirth,
+        phone
       });
     // .pipe(
     //   tap(({ token, user }) => {

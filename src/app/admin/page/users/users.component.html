@@ -1,10 +1,13 @@
-<div class="row justify-content-center mt-4">
+<div class="row justify-content-center mt-4 mb-4">
     <div class="col-md-3 btns-action">
-        <a routerLink="/admin/menu" class="btns-action__link">Cancelar</a>
+
+        <a routerLink="/admin/menu" class="btns-action__button">Voltar</a>
+
     </div>
 </div>
 
-<div *ngFor="let subscribed of users; let i = index" class="p-4" [ngClass]="{'mb-3': users.length > 1}">
+<div *ngFor="let subscribed of users; let i = index" style="padding-left: 18px; padding-right: 18px"
+    [ngClass]="{'mb-4': users.length > 1}">
 
     <div class="card-works">
         <div class="row">
@@ -16,9 +19,13 @@
                 <small>EMAIL</small>
                 <h4>{{ subscribed.email.toLowerCase() }}</h4>
             </div>
-            <div class="col-sm-3 border-right">
+            <div class="col-sm-2 border-right">
+                <small>NASCIMENTO</small>
+                <h4>{{ subscribed.dateBirth | date: 'dd/MM/yyyy' }} </h4>
+            </div>
+            <div class="col-sm-2 border-right">
                 <small>CELULAR</small>
-                <h4>{{ subscribed.phone }}</h4>
+                <h4>{{ subscribed.phone | mask: '(00) 00000-0000'}}</h4>
             </div>
 
             <div class="col-sm-2">
@@ -30,12 +37,12 @@
                         <div>
                             <div class="btn-group" role="group" aria-label="Basic example">
                                 <button (click)="isAdmin(subscribed, 'admin')"
-                                    [ngStyle]="{'background-color: green;color:white':  subscribed.roles.length > 0, 'background-color: white;color: black': subscribed.payment.roles.length > 0}"
-                                    type="button" [ngClass]="{'btn btn-success': subscribed.payment.roles.length > 0}"
+                                    [ngStyle]="{'background-color: green;color:white':  subscribed.roles.length > 0, 'background-color: white;color: black': subscribed.roles.length > 0}"
+                                    type="button" [ngClass]="{'btn btn-success': subscribed.roles.length > 0}"
                                     class="btn">Sim</button>
                                 <button (click)="isAdmin(subscribed, null)"
-                                    [ngStyle]="{'background-color: red;color:white':  subscribed.payment.roles.length == 0, 'background-color: white;color: black': subscribed.payment.roles.length > 0}"
-                                    type="button" [ngClass]="{'btn btn-danger': subscribed.payment.roles.length == 0}"
+                                    [ngStyle]="{'background-color: red;color:white':  subscribed.roles.length == 0, 'background-color: white;color: black': subscribed.roles.length > 0}"
+                                    type="button" [ngClass]="{'btn btn-danger': subscribed.roles.length == 0}"
                                     class="btn">Não</button>
                             </div>
                         </div>

@@ -8,6 +8,8 @@ const userSchema = Joi.object({
   mobileNumber: Joi.string().regex(/^[1-9][0-9]{9}$/),
   password: Joi.string().required(),
   repeatPassword: Joi.string().required().valid(Joi.ref('password')),
+  phone: Joi.string(),
+  dateBirth: Joi.date()
 });
 
 module.exports = {
