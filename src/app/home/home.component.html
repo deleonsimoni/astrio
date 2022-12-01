@@ -72,6 +72,10 @@
 
     <div class="row justify-content-center">
       <div class="col-md-10">
+        <ng-container *ngIf="landingData.noticias.length < 1">
+          <p class="text-center">Não existem notícias cadastradas</p>
+        </ng-container>
+
         <carousel *ngIf="landingData.noticias.length > 0">
           <slide *ngFor="let noticia of landingData.noticias" class="noticia">
             <img [src]="noticia.logo | imagePathComplement" class="noticia__banner" (click)="viewMore(noticia)">

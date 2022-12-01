@@ -54,13 +54,12 @@ export class HeaderComponent {
   logout(): void {
     this.authService.signOut();
     this.router.navigateByUrl('/auth/login');
-    this.checkLoggin();
+    this.isLoggedin = false;
   }
 
   private checkLoggin() {
     this.authService.getUser()
       .pipe(
-        take(1),
         map(user => {
           if (user) {
             this.isLoggedin = true

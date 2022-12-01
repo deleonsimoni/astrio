@@ -46,6 +46,8 @@
     padding: 8px 0px;
     justify-content: start;
     align-items: center;
+    background-color: #000080;
+    color: #fff;
   }
 
   &__title {
@@ -57,7 +59,7 @@
 
   &__icon {
     padding: 4px 12px;
-    border-right: 1px solid #000;
+    border-right: 1px solid #fff;
     cursor: pointer;
   }
 }
