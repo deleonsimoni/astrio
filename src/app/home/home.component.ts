@@ -45,7 +45,7 @@ export class HomeComponent implements OnInit {
       .subscribe((data: any) => {
         this.landingData = data;
 
-        if (this.landingData.contato.linkMap) {
+        if (this.landingData?.contato?.linkMap) {
           const iframe = document.createElement("iframe");
           iframe.src = this.landingData.contato.linkMap;
           iframe.setAttribute("frameborder", "0");

@@ -42,8 +42,6 @@ async function markAdmin(userId, isAdmin) {
   return await User.findByIdAndUpdate({
     _id: userId
   }, {
-    roles: {
-      roles
-    }
+    roles
   });
 }
