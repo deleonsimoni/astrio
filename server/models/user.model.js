@@ -1,3 +1,4 @@
+const { string } = require('joi');
 const mongoose = require('mongoose');
 
 const UserSchema = new mongoose.Schema(
@@ -19,6 +20,12 @@ const UserSchema = new mongoose.Schema(
     hashedPassword: {
       type: String,
       required: true,
+    },
+    dateBirth: {
+      type: Date
+    },
+    phone: {
+      type: String
     },
     createdAt: {
       type: Date,

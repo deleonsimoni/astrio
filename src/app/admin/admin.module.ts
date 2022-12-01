@@ -14,6 +14,8 @@ import { DiretoriaAdminComponent } from './page/diretoria/diretoria.component';
 import { QuemSomosAdminComponent } from './page/quem-somos/quem-somos.component';
 import { SharedModule } from '@app/shared/shared.module';
 import { NoticiasComponent } from './page/noticias/noticias.component';
+import { UsersComponent } from './page/users/users.component';
+import { NgxMaskModule } from 'ngx-mask';
 
 @NgModule({
   declarations: [
@@ -24,15 +26,17 @@ import { NoticiasComponent } from './page/noticias/noticias.component';
     PresidentesAdminComponent,
     DiretoriaAdminComponent,
     QuemSomosAdminComponent,
-    NoticiasComponent
+    NoticiasComponent,
+    UsersComponent
   ],
   imports: [
     CommonModule,
     AdminRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    SharedModule
+    SharedModule,
+    NgxMaskModule.forRoot(),
   ],
   providers: [OnlyAdminUsersGuard],
 })
-export class AdminModule {}
+export class AdminModule { }

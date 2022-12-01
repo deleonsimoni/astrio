@@ -11,6 +11,7 @@ import { PresidentesAdminComponent } from './page/presidentes/presidentes.compon
 import { DiretoriaAdminComponent } from './page/diretoria/diretoria.component';
 import { QuemSomosAdminComponent } from './page/quem-somos/quem-somos.component';
 import { NoticiasComponent } from './page/noticias/noticias.component';
+import { UsersComponent } from './page/users/users.component';
 
 
 const routes: Routes = [
@@ -25,6 +26,10 @@ const routes: Routes = [
       {
         path: 'menu',
         component: AdminComponent
+      },
+      {
+        path: 'users',
+        component: UsersComponent,
       },
       {
         path: 'home',
@@ -62,4 +67,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule],
 })
-export class AdminRoutingModule {}
+export class AdminRoutingModule { }

@@ -14,6 +14,8 @@ const QuemSomosRoutes = require('./quem-somos.route');
 const NoticiaRoutes = require('./noticia.route');
 const EstatutoRoutes = require('./estatuto.route');
 
+const userCtrl = require('../controllers/user.controller');
+
 // router.use(passport.authenticate('jwt', { session: false }));
 
 // Home
@@ -73,5 +75,26 @@ router
   .post("/estatuto", [fileUpload()], asyncHandler(EstatutoRoutes.update));
 router
   .get("/estatuto", asyncHandler(EstatutoRoutes.list));
+
+
+//Users
+router
+  .get("/users", asyncHandler(listUsers));
+router
+  .put("/users/:userId", asyncHandler(markAdmin));
+
+async function listUsers(req, res) {
+  let response = await userCtrl.listUsers();
+  res.json({
+    response
+  });
+}
+
+async function markAdmin(req, res) {
+  let response = await userCtrl.markAdmin(req.params.userId, req.body.isAdmin);
+  res.json({
+    response
+  });
+}
 
 module.exports = router;

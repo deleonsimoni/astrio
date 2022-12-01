@@ -12,6 +12,7 @@ export class AdminComponent {
 
   public loading = false;
   public menu = [
+    { title: "Usuários", path: "users" },
     { title: "Home", path: "home" },
     { title: "Quem somos", path: "quem-somos" },
     { title: "Convênios", path: "convenios" },
@@ -19,14 +20,14 @@ export class AdminComponent {
     { title: "Presidentes", path: "presidentes" },
     { title: "Diretoria / Conselho", path: "diretoria" },
     { title: "Notícias", path: "noticia" },
-    { title: "Atualizar o estatuto"}
+    { title: "Atualizar o estatuto" }
   ]
   private id = "";
 
   constructor(
     private router: Router,
     private estatutoService: EstatutoService
-  ) {}
+  ) { }
 
   ngOnInit() {
     this.estatutoService.list()

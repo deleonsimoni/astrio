@@ -38,7 +38,9 @@ export class RegisterComponent {
       fullname: [null, [Validators.required]],
       email: [null, [Validators.required, Validators.email]],
       password: [null, [Validators.required]],
-      repeatPassword: [null, [Validators.required, this.passwordsMatchValidator]]
+      repeatPassword: [null, [Validators.required, this.passwordsMatchValidator]],
+      dateBirth: [null],
+      phone: [null]
     })
   }
 
@@ -46,8 +48,8 @@ export class RegisterComponent {
     const password = control.root.get('password');
     return password && control.value !== password.value
       ? {
-          passwordMatch: true,
-        }
+        passwordMatch: true,
+      }
       : null;
   }
 
@@ -55,7 +57,8 @@ export class RegisterComponent {
     return this.registerForm.get('fullname')!;
   }
 
-  get email(): AbstractControl {console.log(this.registerForm.get('email'))
+  get email(): AbstractControl {
+    console.log(this.registerForm.get('email'))
     return this.registerForm.get('email')!;
   }
 
@@ -76,11 +79,11 @@ export class RegisterComponent {
 
     this.loading = true;
 
-    const { fullname, email, password, repeatPassword } =
+    const { fullname, email, password, repeatPassword, dateBirth, phone } =
       this.registerForm.getRawValue();
 
     this.authService
-      .register(fullname, email, password, repeatPassword)
+      .register(fullname, email, password, repeatPassword, dateBirth, phone)
       .pipe(
         finalize(() => {
           this.loading = false;

@@ -20,6 +20,7 @@ import { CustomPipesModule } from './shared/pipes/custom-pipes.module';
 import { NoticiaComponent } from './noticia/noticia.component';
 import { ToastrModule } from 'ngx-toastr';
 import { OnlyAdminUsersGuard } from './admin/admin-user-guard';
+import { NgxMaskModule } from 'ngx-mask';
 
 
 export function appInitializerFactory(authService: AuthService) {
@@ -34,7 +35,8 @@ export function appInitializerFactory(authService: AuthService) {
     CarouselModule,
     AppRoutingModule,
     CustomPipesModule,
-    ToastrModule.forRoot()
+    ToastrModule.forRoot(),
+    NgxMaskModule.forRoot(),
   ],
   declarations: [
     AppComponent,

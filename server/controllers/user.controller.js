@@ -12,6 +12,8 @@ const userSchema = Joi.object({
 
 module.exports = {
   insert,
+  listUsers,
+  markAdmin
 };
 
 async function insert(user) {
@@ -19,4 +21,29 @@ async function insert(user) {
   user.hashedPassword = bcrypt.hashSync(user.password, 10);
   delete user.password;
   return await new User(user).save();
+}
+
+async function listUsers() {
+  return await User.find()
+    .select('_id -password')
+    .sort({
+      fullname: 1
+    });
+}
+
+async function markAdmin(userId, isAdmin) {
+
+  let roles = [];
+
+  if (isAdmin == "admin") {
+    roles.push("admin");
+  }
+
+  return await User.findByIdAndUpdate({
+    _id: userId
+  }, {
+    roles: {
+      roles
+    }
+  });
 }
