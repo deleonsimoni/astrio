@@ -55,6 +55,8 @@ export class ContatoAdminComponent {
           fax: contact.fax,
           linkMap: contact.linkMap
         });
+
+        this.showMessage("Dados atualizados com sucesso!");
       }, error => {
         this.showMessage(error.error);
       })

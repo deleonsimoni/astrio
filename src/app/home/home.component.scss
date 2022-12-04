@@ -65,6 +65,7 @@
     margin: auto;
     justify-content: center;
     align-items: center;
+    max-width: 100%;
   }
 
   &__content {
@@ -122,6 +123,8 @@
 }
 
 .icon-box {
+  min-width: 100%;
+
   a[disabled] {
     pointer-events: none;
   }

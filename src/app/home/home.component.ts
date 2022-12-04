@@ -1,11 +1,12 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { DomSanitizer } from '@angular/platform-browser';
 import { Router } from '@angular/router';
 import { AniversariantesService } from '@app/shared/services/aniversariantes.service';
 import { PublicService } from '@app/shared/services/public/public.service';
 
 export class LandingData {
   home: { title: string, description: string };
-  contato: { address: string, email: string, phone: string, fax: string, linkMap: string };
+  contato: { address: string, email: string, phone: string, fax: string, linkMap: any };
   convenios: Array<{ logo: string, title: string, description: string }>;
   quemSomos: { aboutUs: string, mission: string, vision: string };
   noticias: Array<{ logo: string, title: string, description: string }>;
@@ -29,7 +30,8 @@ export class HomeComponent implements OnInit {
   constructor(
     private aniversariantesService: AniversariantesService,
     private publicService: PublicService,
-    private router: Router
+    private router: Router,
+    private sanitizer: DomSanitizer
   ) { }
 
   ngOnInit(): void {
@@ -45,15 +47,7 @@ export class HomeComponent implements OnInit {
       .subscribe((data: any) => {
         this.landingData = data;
 
-        if (this.landingData?.contato?.linkMap) {
-          const iframe = document.createElement("iframe");
-          iframe.src = this.landingData.contato.linkMap;
-          iframe.setAttribute("frameborder", "0");
-          iframe.setAttribute("style", "border: 0; width: 100%; height: 290px");
-          iframe.setAttribute("allowfullscreen", "");
-
-          document.querySelector(".info")?.append(iframe)
-        }
+        this.landingData.contato.linkMap = this.sanitizer.bypassSecurityTrustResourceUrl(this.landingData.contato.linkMap);
       });
   }
 

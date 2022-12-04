@@ -10,9 +10,9 @@ class DiretorRoutes {
     }
   }
 
-  static async create(req, res) {
+  static create(req, res) {
     try {
-      const data = await new DiretorController().create(req.body);
+      const data = new DiretorController().create(req.body);
       res.json(data);
     } catch(error) {
       res.status(500).json(error);

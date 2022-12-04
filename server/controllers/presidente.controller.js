@@ -6,7 +6,9 @@ class PresidenteController {
   }
 
   listAll() {
-    return Presidente.find();
+    return Presidente.find().sort({
+      period: -1
+    });
   }
 
   delete(id) {

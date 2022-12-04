@@ -51,6 +51,8 @@ export class HomeAdminComponent implements OnInit {
           title: home.title,
           description: home.description
         });
+
+        this.showMessage("Dados atualizados com sucesso!");
       }, error => this.showMessage(error.error))
   }
 

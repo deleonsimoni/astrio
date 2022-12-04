@@ -51,6 +51,8 @@ export class QuemSomosAdminComponent {
           vision: quemSomos.vision,
           aboutUs: quemSomos.aboutUs
         });
+
+        this.showMessage("Dados atualizados com sucesso!");
       }, error => this.showMessage(error.error))
   }
 

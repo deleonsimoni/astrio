@@ -79,7 +79,7 @@
         <carousel *ngIf="landingData.noticias.length > 0">
           <slide *ngFor="let noticia of landingData.noticias" class="noticia">
             <img [src]="noticia.logo | imagePathComplement" class="noticia__banner" (click)="viewMore(noticia)">
-            <div class="carousel-caption d-none d-md-block noticia__content info-content">
+            <div class="carousel-caption noticia__content info-content">
               <div class="info-content__action">
                 <h3 class="info-content__title">{{ noticia.title }}</h3>
                 <div class="btn-action" (click)="viewMore(noticia)">
@@ -183,7 +183,7 @@
           <p class="text-center">Não existem convênios cadastrados</p>
         </ng-container>
 
-        <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100"
+        <div class="col-lg-4 col-md-6 d-flex align-items-stretch mb-4" data-aos="zoom-in" data-aos-delay="100"
           *ngFor="let convenio of landingData.convenios">
           <div class="icon-box iconbox-blue">
             <div class="icon">
@@ -481,11 +481,11 @@
             </div>
           </div>
 
-          <!-- <ng-container *ngIf="landingData.contato.linkMap">
+          <ng-container *ngIf="landingData.contato.linkMap">
             <iframe
               [src]="landingData.contato.linkMap"
-              frameborder="0" style="border: 0; width: 100%; height: 290px" allowfullscreen></iframe>
-          </ng-container> -->
+              frameborder="0" id="map" style="border: 0; width: 100%; height: 290px" allowfullscreen></iframe>
+          </ng-container>
         </div>
 
         <!-- <div class="col-lg-7 mt-5 mt-lg-0 d-flex align-items-stretch">
