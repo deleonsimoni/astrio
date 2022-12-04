@@ -6,7 +6,7 @@ class PresidenteRoutes {
       const data = await new PresidenteController().listAll();
       res.json(data);
     } catch(error) {
-      res.json(error);
+      res.status(500).json(error);
     }
   }
 
@@ -15,7 +15,7 @@ class PresidenteRoutes {
       const data = await new PresidenteController().create(req.body);
       res.json(data);
     } catch(error) {
-      res.json(error);
+      res.status(500).json(error);
     }
   }
 
@@ -26,7 +26,7 @@ class PresidenteRoutes {
       const data = await new PresidenteController().delete(id);
       res.json(data);
     } catch(error) {
-      res.json(error);
+      res.status(500).json(error);
     }
   }
 }

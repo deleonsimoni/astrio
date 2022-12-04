@@ -1,5 +1,6 @@
 import { Component } from "@angular/core";
 import { FormBuilder, FormGroup } from "@angular/forms";
+import { MatSnackBar } from "@angular/material/snack-bar";
 import { DiretoriaService } from "@app/shared/services/diretoria/diretoria.service";
 
 import { finalize, take } from "rxjs";
@@ -17,7 +18,8 @@ export class DiretoriaAdminComponent {
 
   constructor(
     private formBuilder: FormBuilder,
-    private diretoriaService: DiretoriaService
+    private diretoriaService: DiretoriaService,
+    private snackBar: MatSnackBar
   ) {}
 
   ngOnInit() {
@@ -44,7 +46,7 @@ export class DiretoriaAdminComponent {
       )
       .subscribe((diretores: any) => {
         this.diretores = diretores;
-      })
+      }, error => this.showMessage(error.error))
   }
 
   public register(): void {
@@ -56,7 +58,7 @@ export class DiretoriaAdminComponent {
         .subscribe(_ => {
           this.listAll();
           this.diretoriaForm.reset();
-        }, error => console.log(error));
+        }, error => this.showMessage(error.error));
     }
 
   }
@@ -68,7 +70,11 @@ export class DiretoriaAdminComponent {
     this.diretoriaService.delete(id)
       .subscribe(_ => {
         this.listAll();
-      })
+      }, error => this.showMessage(error.error))
+  }
+
+  showMessage(text: any) {
+    this.snackBar.open(text, 'X', { duration: 3000 })
   }
 
 }

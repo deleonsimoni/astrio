@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { FileProvider } from '@app/shared/provider/file/file.provider';
 import { NoticiaService } from '@app/shared/services/noticia/noticia.service';
 import { finalize, take } from 'rxjs';
@@ -21,7 +22,8 @@ export class NoticiasComponent implements OnInit {
   constructor(
     private noticiaService: NoticiaService,
     private formBuilder: FormBuilder,
-    private fileProvider: FileProvider
+    private fileProvider: FileProvider,
+    private snackBar: MatSnackBar
   ) {}
 
   ngOnInit() {
@@ -49,7 +51,7 @@ export class NoticiasComponent implements OnInit {
       )
       .subscribe((noticias: any) => {
         this.noticias = noticias;
-      })
+      }, error => this.showMessage(error.error))
   }
 
   public register(): void {
@@ -62,7 +64,7 @@ export class NoticiasComponent implements OnInit {
           this.listAll();
           this.logo = "";
           this.noticiaForm.reset();
-        }, error => console.log(error));
+        }, error => this.showMessage(error.error));
     }
 
   }
@@ -74,7 +76,7 @@ export class NoticiasComponent implements OnInit {
     this.noticiaService.delete(id)
       .subscribe(_ => {
         this.listAll();
-      })
+      }, error => this.showMessage(error.error))
   }
 
   public getProfileImageCode(event: any): void {
@@ -83,6 +85,10 @@ export class NoticiasComponent implements OnInit {
         this.logo = base64;
         this.file = file;
       });
+  }
+
+  showMessage(text: any) {
+    this.snackBar.open(text, 'X', { duration: 3000 })
   }
 
 }

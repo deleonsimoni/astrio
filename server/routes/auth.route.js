@@ -26,6 +26,12 @@ async function register(req, res, next) {
 
 function login(req, res) {
   let user = req.user;
-  let token = authCtrl.generateToken(user);
-  res.json({ user, token });
+
+  if (user.roles.length > 0) {
+    let token = authCtrl.generateToken(user);
+    res.json({ user, token });
+  } else {
+    res.status(401).json({ message: "User is not admin!" });
+  }
+
 }

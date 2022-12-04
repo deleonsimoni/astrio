@@ -1,5 +1,6 @@
 import { Component } from "@angular/core";
 import { FormBuilder, FormGroup } from "@angular/forms";
+import { MatSnackBar } from "@angular/material/snack-bar";
 import { ContatoService } from "@app/shared/services/contato/contato.service";
 import { finalize, take } from "rxjs";
 
@@ -15,7 +16,8 @@ export class ContatoAdminComponent {
 
   constructor(
     private contatoService: ContatoService,
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
+    private snackBar: MatSnackBar
   ) {}
 
   ngOnInit() {
@@ -53,6 +55,8 @@ export class ContatoAdminComponent {
           fax: contact.fax,
           linkMap: contact.linkMap
         });
+      }, error => {
+        this.showMessage(error.error);
       })
   }
 
@@ -64,9 +68,15 @@ export class ContatoAdminComponent {
       this.contatoService.update(body)
         .subscribe(_ => {
           this.listAll();
-        }, error => console.log(error));
+        }, error => {
+          this.showMessage(error.error);
+        });
     }
 
+  }
+
+  showMessage(text: any) {
+    this.snackBar.open(text, 'X', { duration: 3000 })
   }
 
 }

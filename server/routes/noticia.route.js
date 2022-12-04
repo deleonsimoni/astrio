@@ -6,7 +6,7 @@ class NoticiaRoutes {
       const data = await new NoticiaController().listAll();
       res.json(data);
     } catch(error) {
-      res.json(error);
+      res.status(500).json(error);
     }
   }
 
@@ -18,7 +18,7 @@ class NoticiaRoutes {
       const data = await new NoticiaController().create(body, file);
       res.json(data);
     } catch(error) {
-      res.json(error);
+      res.status(500).json(error);
     }
   }
 
@@ -29,7 +29,7 @@ class NoticiaRoutes {
       const data = await new NoticiaController().delete(id);
       res.json(data);
     } catch(error) {
-      res.json(error);
+      res.status(500).json(error);
     }
   }
 }

@@ -6,7 +6,7 @@ class EstatutoRoutes {
       const data = await new EstatutoController().listAll();
       res.json(data);
     } catch(error) {
-      res.json(error);
+      res.status(500).json(error);
     }
   }
 
@@ -18,7 +18,7 @@ class EstatutoRoutes {
       const data = await new EstatutoController().update(body.id, file);
       res.json(data);
     } catch(error) {
-      res.json(error);
+      res.status(500).json(error);
     }
   }
 }

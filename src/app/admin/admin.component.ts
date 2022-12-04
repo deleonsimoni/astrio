@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { EstatutoService } from '@app/shared/services/estatuto/estatuto.service';
 import { finalize, take } from 'rxjs';
@@ -26,8 +27,9 @@ export class AdminComponent {
 
   constructor(
     private router: Router,
-    private estatutoService: EstatutoService
-  ) { }
+    private estatutoService: EstatutoService,
+    private snackBar: MatSnackBar
+  ) {}
 
   ngOnInit() {
     this.estatutoService.list()
@@ -56,8 +58,16 @@ export class AdminComponent {
             this.loading = false;
           })
         )
-        .subscribe();
+        .subscribe(_ => {
+          this.showMessage("Arquivo atualizado com sucesso!");
+        }, error => {
+          this.showMessage(error.error);
+        });
     }
+  }
+
+  showMessage(text: any) {
+    this.snackBar.open(text, 'X', { duration: 3000 })
   }
 
 }

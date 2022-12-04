@@ -6,7 +6,7 @@ class ContatoRoutes {
       const data = await new ContatoController().listAll();
       res.json(data);
     } catch(error) {
-      res.json(error);
+      res.status(500).json(error);
     }
   }
 
@@ -15,7 +15,7 @@ class ContatoRoutes {
       const data = await new ContatoController().update(req.body);
       res.json(data);
     } catch(error) {
-      res.json(error);
+      res.status(500).json(error);
     }
   }
 }

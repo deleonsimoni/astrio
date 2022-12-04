@@ -6,7 +6,7 @@ class ConvenioRoutes {
       const data = await new ConvenioController().listAll();
       res.json(data);
     } catch(error) {
-      res.json(error);
+      res.status(500).json(error);
     }
   }
 
@@ -18,7 +18,7 @@ class ConvenioRoutes {
       const data = await new ConvenioController().create(body, file);
       res.json(data);
     } catch(error) {
-      res.json(error);
+      res.status(500).json(error);
     }
   }
 
@@ -29,7 +29,7 @@ class ConvenioRoutes {
       const data = await new ConvenioController().delete(id);
       res.json(data);
     } catch(error) {
-      res.json(error);
+      res.status(500).json(error);
     }
   }
 }

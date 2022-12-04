@@ -11,8 +11,7 @@ class NoticiaController {
 
       return new Noticia(body).save();
     } catch (error) {
-      console.log(error);
-      return "Servidor momentaneamente inoperante. Tente novamente mais tarde.";
+      throw "Servidor momentaneamente inoperante. Tente novamente mais tarde.";
     }
 
   }

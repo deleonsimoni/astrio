@@ -6,7 +6,7 @@ class QuemSomosRoutes {
       const data = await new QuemSomosController().listAll();
       res.json(data);
     } catch(error) {
-      res.json(error);
+      res.status(500).json(error);
     }
   }
 
@@ -15,7 +15,7 @@ class QuemSomosRoutes {
       const data = await new QuemSomosController().update(req.body);
       res.json(data);
     } catch(error) {
-      res.json(error);
+      res.status(500).json(error);
     }
   }
 }

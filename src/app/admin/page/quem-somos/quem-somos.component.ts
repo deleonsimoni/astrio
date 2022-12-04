@@ -1,5 +1,6 @@
 import { Component } from "@angular/core";
 import { FormBuilder, FormGroup } from "@angular/forms";
+import { MatSnackBar } from "@angular/material/snack-bar";
 import { QuemSomosService } from "@app/shared/services/quem-somos/quem-somos.service";
 import { finalize, take } from "rxjs";
 
@@ -15,7 +16,8 @@ export class QuemSomosAdminComponent {
 
   constructor(
     private quemSomosService: QuemSomosService,
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
+    private snackBar: MatSnackBar
   ) {}
 
   ngOnInit() {
@@ -49,7 +51,7 @@ export class QuemSomosAdminComponent {
           vision: quemSomos.vision,
           aboutUs: quemSomos.aboutUs
         });
-      })
+      }, error => this.showMessage(error.error))
   }
 
   public register() {
@@ -60,9 +62,12 @@ export class QuemSomosAdminComponent {
       this.quemSomosService.update(body)
         .subscribe(_ => {
           this.listAll();
-        }, error => console.log(error));
+        }, error => this.showMessage(error.error));
     }
 
   }
 
+  showMessage(text: any) {
+    this.snackBar.open(text, 'X', { duration: 3000 })
+  }
 }

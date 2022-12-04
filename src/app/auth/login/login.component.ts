@@ -46,10 +46,11 @@ export class LoginComponent {
           this.router.navigate(['/admin']);
         }, err => {
           if (err.status === 401) {
-            this.error = 'Email ou senha inválidos!';
+            this.error = 'Área reservada aos administradores do site!';
+
             setTimeout(() => {
               this.error = "";
-            }, 2000)
+            }, 4000)
           }
         });
     } else {
@@ -57,7 +58,7 @@ export class LoginComponent {
 
       setTimeout(() => {
         this.error = "";
-      }, 2000)
+      }, 4000)
     }
   }
 

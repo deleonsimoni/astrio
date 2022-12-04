@@ -26,11 +26,11 @@ export class CatchErrorInterceptor implements HttpInterceptor {
     const text: string | undefined =
       response.error?.message ?? response.error.statusText;
 
-    if (text) {
-      this.snackBar.open(text, 'Close', {
-        duration: 2000,
-      });
-    }
+    // if (text) {
+    //   this.snackBar.open(text, 'Close', {
+    //     duration: 2000,
+    //   });
+    // }
 
     return throwError(() => response);
   };

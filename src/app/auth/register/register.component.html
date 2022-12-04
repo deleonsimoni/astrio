@@ -32,19 +32,20 @@
           <div class="mb-3">
             <input type="email" class="form-control" autocomplete="off" id="exampleFormControlInput1"
               placeholder="Digite seu email" formControlName="email">
-            <p class="error" *ngIf="email.invalid && email.hasError('email')">Digite um endereço de email válido!</p>
+            <p class="error" *ngIf="email.invalid && !email.pristine || email.invalid && email.hasError('email')">Digite um endereço de email válido!</p>
           </div>
 
           <div class="mb-3">
             <input type="password" class="form-control" id="exampleFormControlInput1" placeholder="Digite sua senha"
               formControlName="password">
+            <p class="error" *ngIf="password.invalid && !password.pristine">Digite uma senha!</p>
           </div>
 
           <div class="mb-3">
             <input type="password" class="form-control" id="exampleFormControlInput1"
               placeholder="Digite sua senha novamente" formControlName="repeatPassword">
-            <p class="error" *ngIf="repeatPassword.invalid && repeatPassword.hasError('repeatPassword')">As senhas devem
-              ser iguais!</p>
+              <p class="error" *ngIf="repeatPassword.invalid && !repeatPassword.pristine && !repeatPassword.hasError('passwordMatch')">Confirme sua senha!</p>
+              <p class="error" *ngIf="repeatPassword.invalid && repeatPassword.hasError('passwordMatch')">As senhas devem ser iguais!</p>
           </div>
 
           <div class="d-grid gap-2 mt-3">

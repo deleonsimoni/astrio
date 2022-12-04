@@ -41,11 +41,13 @@
       <h3 class="mb-4">Convênios cadastrados</h3>
 
       <div class="row list">
-        <div *ngFor="let convenio of convenios" class="col-md-4 list__item">
-          <div class="list__icon" (click)="remove(convenio)">
-            <i class="bi bi-trash"></i>
+        <div *ngFor="let convenio of convenios" class="col-md-4">
+          <div class="list__item">
+            <div class="list__icon" (click)="remove(convenio)">
+              <i class="bi bi-trash"></i>
+            </div>
+            <p class="list__title">{{ convenio.title }}</p>
           </div>
-          <p class="list__title">{{ convenio.title }}</p>
         </div>
       </div>
     </div>

@@ -6,8 +6,7 @@ class HomeRoutes {
       const data = await new HomeController().listAll();
       res.json(data);
     } catch(error) {
-      console.log(error)
-      res.json(error);
+      res.status(500).json(error);
     }
   }
 
@@ -16,8 +15,7 @@ class HomeRoutes {
       const data = await new HomeController().update(req.body);
       res.json(data);
     } catch(error) {
-      console.error("error: ", error)
-      res.json(error);
+      res.status(500).json(error);
     }
   }
 }

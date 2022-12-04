@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { HomeService } from '@app/shared/services/home/home.service';
 import { finalize, map, take } from 'rxjs';
 
@@ -16,7 +17,8 @@ export class HomeAdminComponent implements OnInit {
 
   constructor(
     private homeService: HomeService,
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
+    private snackBar: MatSnackBar
   ) { }
 
   ngOnInit() {
@@ -49,7 +51,7 @@ export class HomeAdminComponent implements OnInit {
           title: home.title,
           description: home.description
         });
-      })
+      }, error => this.showMessage(error.error))
   }
 
   public register() {
@@ -60,8 +62,12 @@ export class HomeAdminComponent implements OnInit {
       this.homeService.update(body)
         .subscribe(_ => {
           this.listAll();
-        }, error => console.log(error));
+        }, error => this.showMessage(error.error));
     }
 
+  }
+
+  showMessage(text: any) {
+    this.snackBar.open(text, 'X', { duration: 3000 })
   }
 }

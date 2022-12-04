@@ -31,11 +31,13 @@
   <h3 class="mb-4">Diretores cadastrados</h3>
 
   <div class="row list">
-    <div *ngFor="let diretor of diretores" class="col-md-4 list__item">
-      <div class="list__icon" (click)="remove(diretor)">
-        <i class="bi bi-trash"></i>
+    <div *ngFor="let diretor of diretores" class="col-md-4">
+      <div class="list__item">
+        <div class="list__icon" (click)="remove(diretor)">
+          <i class="bi bi-trash"></i>
+        </div>
+        <p class="list__title">{{ diretor.name }}</p>
       </div>
-      <p class="list__title">{{ diretor.name }}</p>
     </div>
   </div>
 </div>

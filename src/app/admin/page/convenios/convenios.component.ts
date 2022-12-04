@@ -1,5 +1,6 @@
 import { Component } from "@angular/core";
 import { FormBuilder, FormGroup } from "@angular/forms";
+import { MatSnackBar } from "@angular/material/snack-bar";
 import { FileProvider } from "@app/shared/provider/file/file.provider";
 import { ConvenioService } from "@app/shared/services/convenio/convenio.service";
 import { finalize, take } from "rxjs";
@@ -20,7 +21,8 @@ export class ConveniosAdminComponent {
   constructor(
     private convenioService: ConvenioService,
     private formBuilder: FormBuilder,
-    private fileProvider: FileProvider
+    private fileProvider: FileProvider,
+    private snackBar: MatSnackBar
   ) {}
 
   ngOnInit() {
@@ -48,7 +50,7 @@ export class ConveniosAdminComponent {
       )
       .subscribe((convenios: any) => {
         this.convenios = convenios;
-      })
+      }, error => this.showMessage(error.error))
   }
 
   public register(): void {
@@ -61,7 +63,7 @@ export class ConveniosAdminComponent {
           this.listAll();
           this.logo = "";
           this.convenioForm.reset();
-        }, error => console.log(error));
+        }, error => this.showMessage(error.error));
     }
 
   }
@@ -73,6 +75,8 @@ export class ConveniosAdminComponent {
     this.convenioService.delete(id)
       .subscribe(_ => {
         this.listAll();
+      }, error => {
+        this.showMessage(error.error);
       })
   }
 
@@ -82,6 +86,10 @@ export class ConveniosAdminComponent {
         this.logo = base64;
         this.file = file;
       });
+  }
+
+  showMessage(text: any) {
+    this.snackBar.open(text, 'X', { duration: 3000 })
   }
 
 }

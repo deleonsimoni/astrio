@@ -1,5 +1,6 @@
 import { Component } from "@angular/core";
 import { FormBuilder, FormGroup } from "@angular/forms";
+import { MatSnackBar } from "@angular/material/snack-bar";
 import { PresidenteService } from "@app/shared/services/presidente/presidente.service";
 import { finalize, take } from "rxjs";
 
@@ -16,7 +17,8 @@ export class PresidentesAdminComponent {
 
   constructor(
     private formBuilder: FormBuilder,
-    private presidenteService: PresidenteService
+    private presidenteService: PresidenteService,
+    private snackBar: MatSnackBar
   ) {}
 
   ngOnInit() {
@@ -43,7 +45,7 @@ export class PresidentesAdminComponent {
       )
       .subscribe((presidentes: any) => {
         this.presidentes = presidentes;
-      })
+      }, error => this.showMessage(error.error))
   }
 
   public register(): void {
@@ -55,7 +57,7 @@ export class PresidentesAdminComponent {
         .subscribe(_ => {
           this.listAll();
           this.presidenteForm.reset();
-        }, error => console.log(error));
+        }, error => this.showMessage(error.error));
     }
 
   }
@@ -67,7 +69,10 @@ export class PresidentesAdminComponent {
     this.presidenteService.delete(id)
       .subscribe(_ => {
         this.listAll();
-      })
+      }, error => this.showMessage(error.error))
   }
 
+  showMessage(text: any) {
+    this.snackBar.open(text, 'X', { duration: 3000 })
+  }
 }

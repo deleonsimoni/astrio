@@ -6,7 +6,7 @@ class DiretorRoutes {
       const data = await new DiretorController().listAll();
       res.json(data);
     } catch(error) {
-      res.json(error);
+      res.status(500).json(error);
     }
   }
 
@@ -15,7 +15,7 @@ class DiretorRoutes {
       const data = await new DiretorController().create(req.body);
       res.json(data);
     } catch(error) {
-      res.json(error);
+      res.status(500).json(error);
     }
   }
 
@@ -26,7 +26,7 @@ class DiretorRoutes {
       const data = await new DiretorController().delete(id);
       res.json(data);
     } catch(error) {
-      res.json(error);
+      res.status(500).json(error);
     }
   }
 }

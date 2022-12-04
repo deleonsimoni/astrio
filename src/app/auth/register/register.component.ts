@@ -58,7 +58,6 @@ export class RegisterComponent {
   }
 
   get email(): AbstractControl {
-    console.log(this.registerForm.get('email'))
     return this.registerForm.get('email')!;
   }
 
@@ -74,6 +73,9 @@ export class RegisterComponent {
 
     if (this.registerForm.invalid) {
       this.fullname.markAsDirty();
+      this.email.markAsDirty();
+      this.password.markAsDirty();
+      this.repeatPassword.markAsDirty();
       return;
     }
 
