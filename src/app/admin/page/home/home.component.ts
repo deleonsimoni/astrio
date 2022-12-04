@@ -51,8 +51,6 @@ export class HomeAdminComponent implements OnInit {
           title: home.title,
           description: home.description
         });
-
-        this.showMessage("Dados atualizados com sucesso!");
       }, error => this.showMessage(error.error))
   }
 
@@ -63,6 +61,7 @@ export class HomeAdminComponent implements OnInit {
     if (this.homeForm.valid) {
       this.homeService.update(body)
         .subscribe(_ => {
+          this.showMessage("Dados atualizados com sucesso!");
           this.listAll();
         }, error => this.showMessage(error.error));
     }

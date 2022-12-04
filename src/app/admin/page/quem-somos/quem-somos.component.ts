@@ -51,8 +51,6 @@ export class QuemSomosAdminComponent {
           vision: quemSomos.vision,
           aboutUs: quemSomos.aboutUs
         });
-
-        this.showMessage("Dados atualizados com sucesso!");
       }, error => this.showMessage(error.error))
   }
 
@@ -63,6 +61,7 @@ export class QuemSomosAdminComponent {
     if (this.quemSomosForm.valid) {
       this.quemSomosService.update(body)
         .subscribe(_ => {
+          this.showMessage("Dados atualizados com sucesso!");
           this.listAll();
         }, error => this.showMessage(error.error));
     }
