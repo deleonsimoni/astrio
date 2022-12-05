@@ -42,6 +42,21 @@ export class HeaderComponent {
       .subscribe();
   }
 
+  ngAfterViewInit() {
+    this.loadScript();
+  }
+
+  public loadScript() {
+    let body = <HTMLDivElement>document.body;
+    let script = document.createElement('script');
+    script.innerHTML = '';
+    script.src = "../../assets/js/astrio.js";
+    script.async = true;
+    script.defer = true;
+    body.appendChild(script);
+  }
+
+
   getFile() {
     return this.http.get(this.estatuto.file)
       .pipe(

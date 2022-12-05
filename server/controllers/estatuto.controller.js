@@ -17,7 +17,7 @@ class EstatutoController {
 
       return this.create({ file });
     } catch (error) {
-      throw "Servidor momentaneamente inoperante. Tente novamente mais tarde.";
+      throw "Servidor momentaneamente inoperante. Tente novamente mais tarde " + error;
     }
   }
 
