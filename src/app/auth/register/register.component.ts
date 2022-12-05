@@ -21,6 +21,7 @@ export class RegisterComponent {
 
   public registerForm: FormGroup;
   public successMessage: string;
+  public errorMessage: string;
   public loading: boolean = false;
 
   constructor(
@@ -91,9 +92,20 @@ export class RegisterComponent {
           this.loading = false;
         })
       )
-      .subscribe(() => {
+      .subscribe(message => {
         this.registerForm.reset();
-        this.successMessage = "Seu foi cadastro concluído com sucesso, aguarde a aprovação do administrador!"
+        this.successMessage = message;
+
+        setTimeout(() => {
+          this.successMessage = "";
+        }, 4000)
+      }, ({error}: any) => {
+        console.log(error);
+        this.errorMessage = error.message;
+
+        setTimeout(() => {
+          this.errorMessage = "";
+        }, 4000)
       });
   }
 }

@@ -67,3 +67,16 @@
     margin: 0px;
   }
 }
+
+.register-error {
+  background: #e10303;
+  padding: 8px;
+  border-radius: 4px;
+  margin-bottom: 10px;
+
+  &__text {
+    font-size: 14px;
+    color: #fff;
+    margin: 0px;
+  }
+}

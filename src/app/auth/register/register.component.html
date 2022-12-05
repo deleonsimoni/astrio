@@ -1,4 +1,4 @@
-<div class="container-fluid register">
+1<div class="container-fluid register">
   <div class="row justify-content-center align-items-center box-center">
     <div class="col-10 col-md-8 col-lg-8 col-xl-8 col-xxl-8">
       <div class="register__card">
@@ -8,6 +8,9 @@
 
         <div class="success" *ngIf="successMessage">
           <p class="success__text">{{ successMessage }}</p>
+        </div>
+        <div class="register-error" *ngIf="errorMessage">
+          <p class="register-error__text">{{ errorMessage }}</p>
         </div>
 
         <form [formGroup]="registerForm" (ngSubmit)="register()">
@@ -50,7 +53,7 @@
 
           <div class="d-grid gap-2 mt-3">
             <button class="btn btn-primary" type="submit">CADASTRAR</button>
-            <a class="cancel-link" routerLink="/">Cancelar</a>
+            <a class="cancel-link" routerLink="/">Voltar</a>
           </div>
         </form>
       </div>

@@ -8,7 +8,7 @@ const config = require('../config/config');
 const router = express.Router();
 module.exports = router;
 
-router.post('/register', asyncHandler(register), login);
+router.post('/register', asyncHandler(register));
 router.post(
   '/login',
   passport.authenticate('local', { session: false }),
@@ -17,11 +17,29 @@ router.post(
 router.get('/me', passport.authenticate('jwt', { session: false }), login);
 
 async function register(req, res, next) {
-  let user = await userCtrl.insert(req.body);
-  user = user.toObject();
-  delete user.hashedPassword;
-  req.user = user;
-  next();
+  try {
+    await userCtrl.insert(req.body);
+    res.json("Seu foi cadastro concluído com sucesso, aguarde a aprovação do administrador!");
+  } catch (error) {
+    console.log(error);
+
+    let message = "Servidor momentaneamente inoperante. Tente novamente mais tarde.";
+    let status = 500;
+
+    if (error.hasOwnProperty("keyPattern") && error.keyPattern.email) {
+      message = "Conta já cadastrada!"
+      status = 400;
+    }
+
+    res
+      .status(status)
+      .json({ message });
+  }
+
+  // user = user.toObject();
+  // delete user.hashedPassword;
+  // req.user = user;
+  // next();
 }
 
 function login(req, res) {
