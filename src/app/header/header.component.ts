@@ -42,9 +42,7 @@ export class HeaderComponent {
       .subscribe();
   }
 
-  ngAfterViewInit() {
-    this.loadScript();
-  }
+  ngAfterViewInit() {}
 
   public loadScript() {
     let body = <HTMLDivElement>document.body;
