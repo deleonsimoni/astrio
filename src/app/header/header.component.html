@@ -1,9 +1,8 @@
-<!-- ======= Header ======= -->
-<header id="header" class="d-flex align-items-center">
-  <div class="container d-flex align-items-center">
+<header id="header" class="header fixed-top d-flex align-items-center ">
+  <div class="container d-flex align-items-center justify-content-between ">
+
     <h1 class="mt-4 logo me-auto"><a href="index.html"></a></h1>
-    <!-- Uncomment below if you prefer to use an image logo -->
-    <!-- <a href="index.html" class="logo me-auto"><img src="assets/img/astrio.png" alt="" class="img-fluid"></a>-->
+
 
     <nav id="navbar" class="navbar">
       <ul>
@@ -13,13 +12,13 @@
         <li><a class="nav-link scrollto" href="#services">Convênios</a></li>
 
         <li class="dropdown">
-          <a href="#"><span>AST-Rio</span> <i class="bi bi-chevron-down"></i></a>
+          <a href="#"><span>AST-Rio</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
           <ul>
             <!-- <li><a routerLink="/quem-somos">Quem Somos</a></li>-->
-            <li><a target="_blank" [href]="estatuto.file">Estatuto</a></li>
-            <li><a routerLink="/diretoria">Diretoria / Conselho</a></li>
-            <li><a routerLink="/presidentes">Presidentes</a></li>
-            <li><a routerLink="/auth/login">Área Administrativa</a></li>
+            <li><a class="nav-link" target="_blank" [href]="estatuto.file">Estatuto</a></li>
+            <li><a class="nav-link" routerLink="/diretoria">Diretoria / Conselho</a></li>
+            <li><a class="nav-link" routerLink="/presidentes">Presidentes</a></li>
+            <li><a class="nav-link" routerLink="/auth/login">Área Administrativa</a></li>
             <li *ngIf="isLoggedin"><a (click)="logout()">Sair</a></li>
 
           </ul>
@@ -27,8 +26,10 @@
         <li><a class="nav-link scrollto" href="#contact">Contato</a></li>
       </ul>
       <i class="bi bi-list mobile-nav-toggle"></i>
-    </nav>
-    <!-- .navbar -->
+    </nav><!-- .navbar -->
+
+    <i class="mobile-nav-toggle mobile-nav-show bi bi-list"></i>
+    <i class="mobile-nav-toggle mobile-nav-hide d-none bi bi-x"></i>
+
   </div>
 </header>
-<!-- End Header -->

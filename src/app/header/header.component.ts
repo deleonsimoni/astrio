@@ -42,13 +42,15 @@ export class HeaderComponent {
       .subscribe();
   }
 
-  ngAfterViewInit() {}
+  ngAfterViewInit() {
+    this.loadScript();
+  }
 
   public loadScript() {
     let body = <HTMLDivElement>document.body;
     let script = document.createElement('script');
     script.innerHTML = '';
-    script.src = "../../assets/js/astrio.js";
+    script.src = "../../assets/js/leped2.js";
     script.async = true;
     script.defer = true;
     body.appendChild(script);
